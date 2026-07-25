@@ -19,7 +19,7 @@ export default function CompanyLogo({
     return (
       <div
         className={cn(
-          "relative h-12 w-12 shrink-0 overflow-hidden rounded-xl bg-white p-1 shadow-sm ring-1 ring-ink-900/8",
+          "relative h-14 w-14 shrink-0 overflow-hidden rounded-xl bg-white p-1 shadow-sm ring-1 ring-ink-900/8 sm:h-16 sm:w-16",
           className
         )}
       >
@@ -27,7 +27,7 @@ export default function CompanyLogo({
           src={src}
           alt={`${COMPANY.name} logo`}
           fill
-          sizes="48px"
+          sizes="(min-width: 640px) 64px, 56px"
           className="object-contain p-0.5"
           onError={() => setBroken(true)}
           priority

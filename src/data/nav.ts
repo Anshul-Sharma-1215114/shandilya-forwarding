@@ -18,13 +18,15 @@ export const NAV_ITEMS: NavItem[] = [
 export const COMPANY = {
   name: "Shandilya Forwarding",
   tagline: "Authorized Distributor of Zealup Water & Parle Agro Products",
-  phone: "+91 98765 43210",
-  phoneHref: "tel:+919876543210",
-  whatsapp: "919876543210",
+  phone: "+91 93001 04104",
+  phoneHref: "tel:9300104104",
+  whatsapp: "919300104104",
   email: "info@shandilyaforwarding.com",
-  address: "Plot No. 14, Industrial Estate Road, Distribution Hub, India",
+  address: "Near Mouza Banarsi, Mana, VIP Road, Raipur, C.G.",
   mapsEmbedSrc:
-    "https://www.google.com/maps?q=India&output=embed",
+    "https://www.google.com/maps?q=" +
+    encodeURIComponent("Near Mouza Banarsi, Mana, VIP Road, Raipur, C.G.") +
+    "&output=embed",
   instagram: "https://instagram.com",
   facebook: "https://facebook.com",
   linkedin: "https://linkedin.com",
