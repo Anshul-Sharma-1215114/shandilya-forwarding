@@ -7,6 +7,7 @@ import Container from "@/components/ui/Container";
 import Reveal from "@/components/ui/Reveal";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
+import { InstagramIcon, FacebookIcon } from "@/components/ui/SocialIcon";
 import { COMPANY } from "@/data/nav";
 
 const INQUIRY_TYPES = ["Dealership", "Wholesale Supply", "Institutional Supply", "Bulk Order", "Other"];
@@ -71,6 +72,24 @@ export default function Contact() {
                   <MessageCircle size={17} />
                   Chat on WhatsApp
                 </a>
+
+                <div className="mt-6 flex items-center gap-3">
+                  {[
+                    { icon: InstagramIcon, href: COMPANY.instagram, label: "Instagram" },
+                    { icon: FacebookIcon, href: COMPANY.facebook, label: "Facebook" },
+                  ].map(({ icon: Icon, href, label }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={label}
+                      className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:bg-white hover:text-primary-700"
+                    >
+                      <Icon size={16} />
+                    </a>
+                  ))}
+                </div>
               </div>
 
               <div className="relative flex-1 overflow-hidden rounded-[1.75rem] shadow-lg ring-1 ring-ink-900/8">

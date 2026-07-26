@@ -8,7 +8,6 @@ import Process from "@/components/sections/Process";
 import Stats from "@/components/sections/Stats";
 import Gallery from "@/components/sections/Gallery";
 import Testimonials from "@/components/sections/Testimonials";
-import FAQ from "@/components/sections/FAQ";
 import Contact from "@/components/sections/Contact";
 
 export default function Home() {
@@ -24,7 +23,6 @@ export default function Home() {
       <Stats />
       <Gallery />
       <Testimonials />
-      <FAQ />
       <Contact />
     </>
   );

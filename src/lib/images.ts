@@ -3,7 +3,7 @@ function unsplash(id: string, w = 1600) {
 }
 
 export const IMAGES = {
-  heroDelivery: unsplash("1616432043562-3671ea2e5242", 1800),
+  heroDelivery: "/images/products/truck.png",
   heroShelves: unsplash("1601600576337-c1d8a0d1373c", 900),
   about: unsplash("1587293852726-70cdb56c2866", 1400),
   zealupBrand: "/images/products/ChatGPT_Image_Jul_24_2026_08_57_32_PM.png",

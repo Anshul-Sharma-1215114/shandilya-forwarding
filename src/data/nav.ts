@@ -11,7 +11,6 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Why Choose Us", href: "#why-choose-us" },
   { label: "Distribution", href: "#distribution-network" },
   { label: "Gallery", href: "#gallery" },
-  { label: "FAQs", href: "#faqs" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -27,7 +26,6 @@ export const COMPANY = {
     "https://www.google.com/maps?q=" +
     encodeURIComponent("Near Mouza Banarsi, Mana, VIP Road, Raipur, C.G.") +
     "&output=embed",
-  instagram: "https://instagram.com",
-  facebook: "https://facebook.com",
-  linkedin: "https://linkedin.com",
+  instagram: "https://www.instagram.com/shandilyaforwarding/",
+  facebook: "https://www.facebook.com/profile.php?id=61592404801093",
 };

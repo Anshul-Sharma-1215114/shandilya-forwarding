@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
 import Container from "@/components/ui/Container";
 import CompanyLogo from "@/components/ui/CompanyLogo";
-import { InstagramIcon, FacebookIcon, LinkedinIcon } from "@/components/ui/SocialIcon";
+import { InstagramIcon, FacebookIcon } from "@/components/ui/SocialIcon";
 import { NAV_ITEMS, COMPANY } from "@/data/nav";
 import { BRANDS } from "@/data/brands";
 
@@ -22,7 +22,6 @@ export default function Footer() {
               {[
                 { icon: InstagramIcon, href: COMPANY.instagram, label: "Instagram" },
                 { icon: FacebookIcon, href: COMPANY.facebook, label: "Facebook" },
-                { icon: LinkedinIcon, href: COMPANY.linkedin, label: "LinkedIn" },
               ].map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
@@ -30,7 +29,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white/5 text-ink-200 transition-colors duration-300 hover:bg-primary-600 hover:text-white"
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white/5 text-ink-200 transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:bg-primary-600 hover:text-white"
                 >
                   <Icon size={15} />
                 </a>

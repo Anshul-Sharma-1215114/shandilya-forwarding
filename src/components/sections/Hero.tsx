@@ -24,6 +24,12 @@ export default function Hero() {
       </div>
 
       <Container>
+        <Reveal>
+          <h1 className="font-display mb-14 text-balance text-center text-4xl font-extrabold uppercase leading-[1.1] tracking-[0.04em] text-ink-900 sm:mb-16 sm:text-5xl lg:text-6xl xl:text-7xl">
+            Shandilya <span className="text-primary-700">Forwarding</span>
+          </h1>
+        </Reveal>
+
         <div className="grid items-center gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
           {/* Left: copy */}
           <div>
@@ -35,14 +41,14 @@ export default function Hero() {
             </Reveal>
 
             <Reveal delay={0.08}>
-              <h1 className="font-display mt-6 text-balance text-4xl font-extrabold leading-[1.08] tracking-tight text-ink-900 sm:text-5xl lg:text-[3.4rem]">
+              <h2 className="font-display mt-6 text-balance text-4xl font-extrabold leading-[1.08] tracking-tight text-ink-900 sm:text-5xl lg:text-[3.4rem]">
                 Trusted Distribution Partner for{" "}
                 <span className="relative inline-block text-primary-700">
                   Zealup Water,
                 </span>{" "}
                 <span className="relative inline-block text-secondary-600">Parle Agro</span>{" "}
                 &amp; <span className="relative inline-block text-accent-600">Balaji Wafers</span>
-              </h1>
+              </h2>
             </Reveal>
 
             <Reveal delay={0.16}>
@@ -92,11 +98,11 @@ export default function Hero() {
             >
               <Image
                 src={IMAGES.heroDelivery}
-                alt="Distribution and delivery operations"
+                alt="Shandilya Forwarding branded delivery truck"
                 fill
                 priority
                 sizes="(max-width: 1024px) 90vw, 40vw"
-                className="object-cover"
+                className="object-cover object-[78%_center]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink-900/50 via-transparent to-transparent" />
             </motion.div>
