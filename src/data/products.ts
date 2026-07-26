@@ -39,6 +39,24 @@ export const PRODUCTS: Product[] = [
     image: "/images/products/WhatsApp_Image_2026-07-24_at_8.52.20_PM_1.jpeg",
     accent: "primary",
   },
+  {
+    slug: "zealup-250ml-bottle",
+    name: "Zealup 250ml Bottle",
+    description: "Compact 250ml pack of RO-purified, mineral-enriched water - ideal for events, travel and quick hydration.",
+    brand: "Zealup Water",
+    category: "Packaged Water",
+    image: "/images/products/OIP.webp",
+    accent: "primary",
+  },
+  {
+    slug: "zealup-jeerafizz",
+    name: "Zealup Jeerafizz",
+    description: "A bold jeera-spiced fizzy soda from Zealup - a refreshing masala twist for those who love a kick in their drink.",
+    brand: "Zealup Water",
+    category: "Flavoured Soda",
+    image: "/images/products/zeepup250ml.png",
+    accent: "primary",
+  },
 
   // ---------------- Parle Agro ----------------
   {
