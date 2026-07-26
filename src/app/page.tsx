@@ -8,6 +8,7 @@ import Process from "@/components/sections/Process";
 import Stats from "@/components/sections/Stats";
 import Gallery from "@/components/sections/Gallery";
 import Testimonials from "@/components/sections/Testimonials";
+import AdvertiseWithUs from "@/components/sections/AdvertiseWithUs";
 import Contact from "@/components/sections/Contact";
 
 export default function Home() {
@@ -23,6 +24,7 @@ export default function Home() {
       <Stats />
       <Gallery />
       <Testimonials />
+      <AdvertiseWithUs />
       <Contact />
     </>
   );
