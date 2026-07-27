@@ -17,8 +17,8 @@ export const NAV_ITEMS: NavItem[] = [
 export const COMPANY = {
   name: "Shandilya Forwarding",
   tagline: "Authorized Distributor of Zealup Water & Parle Agro Products",
-  phone: "+91 93001 04104",
-  phoneHref: "tel:9300104104",
+  phone: "+91 99934 41607",
+  phoneHref: "tel:9993441607",
   whatsapp: "919993441607",
   whatsappDefaultMessage: "Hi Shandilya Forwarding, I'd like to enquire about bulk supply.",
   email: "info@shandilyaforwarding.com",
