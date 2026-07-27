@@ -25,8 +25,11 @@ export default function Hero() {
 
       <Container>
         <Reveal>
-          <h1 className="font-display mb-14 text-balance text-center text-4xl font-extrabold uppercase leading-[1.1] tracking-[0.04em] text-ink-900 sm:mb-16 sm:text-5xl lg:text-6xl xl:text-7xl">
+          <h1 className="brand-heading font-display mb-14 text-balance text-center text-4xl font-extrabold uppercase leading-[1.1] tracking-[0.04em] text-ink-900 sm:mb-16 sm:text-5xl lg:text-6xl xl:text-7xl">
             Shandilya <span className="text-primary-700">Forwarding</span>
+            <span aria-hidden="true" className="brand-heading__liquid">
+              Shandilya Forwarding
+            </span>
           </h1>
         </Reveal>
 

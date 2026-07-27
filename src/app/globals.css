@@ -192,3 +192,64 @@ body {
   opacity: 0.035;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
+
+/*
+ * Brand heading liquid-fill hover effect.
+ * A translucent wave-textured gradient clone of the heading text rises
+ * up through the letters (clip-path reveal) and ripples horizontally
+ * (background-position), like liquid filling a glass.
+ */
+.brand-heading {
+  position: relative;
+}
+
+.brand-heading__liquid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-repeat: no-repeat, repeat-x;
+  background-image: linear-gradient(
+      160deg,
+      var(--color-primary-400) 0%,
+      var(--color-primary-600) 55%,
+      var(--color-primary-900) 100%
+    ),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 24'%3E%3Cpath d='M0,12 C15,0 15,24 30,12 C45,0 45,24 60,12 L60,24 L0,24 Z' fill='white' fill-opacity='0.4'/%3E%3C/svg%3E");
+  background-size: 100% 100%, 60px 22px;
+  background-position: 0 0, 0 0;
+  clip-path: inset(100% 0 0 0);
+}
+
+@media (prefers-reduced-motion: no-preference) and (hover: hover) {
+  .brand-heading__liquid {
+    will-change: clip-path, background-position;
+    transition: clip-path 1.1s cubic-bezier(0.65, 0, 0.35, 1), background-position 1.1s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  .brand-heading:hover .brand-heading__liquid {
+    clip-path: inset(0% 0 0 0);
+    background-position: 0 0, -120px 0;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) and (hover: none) {
+  .brand-heading__liquid {
+    animation: brand-heading-idle 5s ease-in-out infinite;
+  }
+}
+
+@keyframes brand-heading-idle {
+  0%,
+  100% {
+    clip-path: inset(88% 0 0 0);
+    background-position: 0 0, 0 0;
+  }
+  50% {
+    clip-path: inset(30% 0 0 0);
+    background-position: 0 0, -60px 0;
+  }
+}
