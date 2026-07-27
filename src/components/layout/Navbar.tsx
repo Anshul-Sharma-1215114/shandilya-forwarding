@@ -95,7 +95,7 @@ export default function Navbar() {
 
           <div className="hidden xl:block">
             <Button href="#contact" variant="primary" withIcon>
-              Become a Dealer
+              Join Us
             </Button>
           </div>
 
@@ -137,7 +137,7 @@ export default function Navbar() {
               ))}
               <div className="mt-3">
                 <Button href="#contact" variant="primary" withIcon className="w-full" onClick={() => setOpen(false)}>
-                  Become a Dealer
+                  Join Us
                 </Button>
               </div>
             </Container>

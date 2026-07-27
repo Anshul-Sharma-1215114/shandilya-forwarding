@@ -26,7 +26,7 @@ export default function Contact() {
         <SectionHeading
           eyebrow="Contact Us"
           title="Let's Start a Business Conversation"
-          description="Whether you're looking for dealership, wholesale supply, or bulk institutional orders — our team is ready to help."
+          description="Whether you're looking for wholesale supply or bulk institutional orders — our team is ready to help."
           className="mb-16"
         />
 
@@ -63,7 +63,7 @@ export default function Contact() {
 
                 <a
                   href={`https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent(
-                    "Hi Shandilya Forwarding, I'd like to enquire about dealership / bulk supply."
+                    COMPANY.whatsappDefaultMessage
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"

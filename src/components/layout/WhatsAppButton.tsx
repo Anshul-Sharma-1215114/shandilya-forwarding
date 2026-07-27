@@ -7,7 +7,7 @@ export default function WhatsAppButton() {
   return (
     <motion.a
       href={`https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent(
-        "Hi Shandilya Forwarding, I'd like to enquire about dealership / bulk supply."
+        COMPANY.whatsappDefaultMessage
       )}`}
       target="_blank"
       rel="noopener noreferrer"

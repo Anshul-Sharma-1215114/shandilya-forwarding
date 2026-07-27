@@ -19,7 +19,8 @@ export const COMPANY = {
   tagline: "Authorized Distributor of Zealup Water & Parle Agro Products",
   phone: "+91 93001 04104",
   phoneHref: "tel:9300104104",
-  whatsapp: "919300104104",
+  whatsapp: "919993441607",
+  whatsappDefaultMessage: "Hi Shandilya Forwarding, I'd like to enquire about bulk supply.",
   email: "info@shandilyaforwarding.com",
   address: "Near Mouza Banarsi, Mana, VIP Road, Raipur, C.G.",
   mapsEmbedSrc:
