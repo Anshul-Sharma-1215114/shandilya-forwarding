@@ -29,6 +29,17 @@ export async function POST(request: NextRequest) {
 
   const data = await backendRes.json().catch(() => ({}));
   if (!backendRes.ok) {
+    // The backend's "Name is required to create a new account" message is
+    // correct for a form that collects a name (this one never does) - it
+    // means the phone number simply isn't a registered account at all.
+    // Since this route never forwards `name`, that's the only way this
+    // specific backend error can happen here.
+    if (data.error === "Name is required to create a new account") {
+      return NextResponse.json(
+        { error: "This phone number isn't registered as a seller." },
+        { status: 400 }
+      );
+    }
     return NextResponse.json(data, { status: backendRes.status });
   }
 
