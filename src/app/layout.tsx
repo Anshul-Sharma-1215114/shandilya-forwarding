@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import WhatsAppButton from "@/components/layout/WhatsAppButton";
-import ScrollToTopButton from "@/components/layout/ScrollToTopButton";
+import PublicNavbar from "@/components/layout/PublicNavbar";
+import PublicFooterChrome from "@/components/layout/PublicFooterChrome";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -67,11 +65,9 @@ export default function RootLayout({
       className={`${inter.variable} ${poppins.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-cream text-ink-800">
-        <Navbar />
+        <PublicNavbar />
         <main className="flex-1">{children}</main>
-        <Footer />
-        <WhatsAppButton />
-        <ScrollToTopButton />
+        <PublicFooterChrome />
       </body>
     </html>
   );
