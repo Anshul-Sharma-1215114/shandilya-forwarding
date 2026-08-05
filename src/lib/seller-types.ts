@@ -39,8 +39,9 @@ export type OrderItem = {
 export type Payment = {
   id: string;
   orderId: string;
-  provider: string;
-  razorpayOrderId: string;
+  provider: "razorpay" | "cod";
+  // COD payments have no Razorpay order to reference.
+  razorpayOrderId: string | null;
   razorpayPaymentId: string | null;
   amountInPaise: number;
   status: "created" | "authorized" | "captured" | "failed" | "refunded";
@@ -55,6 +56,8 @@ export type OrderStatus =
   | "preparing"
   | "packed"
   | "ready_for_pickup"
+  | "accepted"
+  | "picked_up"
   | "out_for_delivery"
   | "delivered"
   | "cancelled";
@@ -138,7 +141,9 @@ export type StoreStatus = {
   timezone: string;
 };
 
-export type DeliveryPartner = { id: string; name: string; phone: string };
+export type DeliveryPartner = { id: string; name: string; phone: string; isAvailable: boolean };
+
+export type DeliveryLocation = { lat: number | null; lng: number | null; updatedAt: string | null };
 
 export type AuditLogEntry = {
   id: string;

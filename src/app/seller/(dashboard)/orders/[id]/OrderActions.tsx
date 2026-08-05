@@ -23,6 +23,8 @@ const STATUS_LABEL: Record<OrderStatus, string> = {
   preparing: "Preparing",
   packed: "Packed",
   ready_for_pickup: "Ready for Pickup",
+  accepted: "Accepted",
+  picked_up: "Picked Up",
   out_for_delivery: "Out for Delivery",
   delivered: "Delivered",
   cancelled: "Cancelled",

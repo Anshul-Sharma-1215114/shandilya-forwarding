@@ -2,6 +2,9 @@ import { notFound } from "next/navigation";
 import { sellerFetch, SellerApiError } from "@/lib/seller-session";
 import type { DeliveryPartner, Order } from "@/lib/seller-types";
 import OrderActions from "./OrderActions";
+import DeliveryTrackingMapLoader from "./DeliveryTrackingMapLoader";
+
+const TRACKABLE_STATUSES = new Set(["picked_up", "out_for_delivery"]);
 
 function formatPrice(paise: number) {
   return `₹${(paise / 100).toFixed(2)}`;
@@ -32,6 +35,12 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ id
       </div>
 
       <OrderActions order={order} partners={partners} />
+
+      {TRACKABLE_STATUSES.has(order.status) && (
+        <Card title="Live Location">
+          <DeliveryTrackingMapLoader orderId={order.id} />
+        </Card>
+      )}
 
       <div className="grid gap-6 sm:grid-cols-2">
         <Card title="Customer">
@@ -67,7 +76,8 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ id
           </div>
           {order.payment && (
             <p className="text-xs text-ink-400">
-              Payment: {order.payment.status} via {order.payment.provider}
+              Payment: {order.payment.status}{" "}
+              {order.payment.provider === "cod" ? "via Cash on Delivery" : "via Razorpay"}
             </p>
           )}
         </div>
