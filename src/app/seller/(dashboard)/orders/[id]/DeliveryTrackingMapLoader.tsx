@@ -15,6 +15,14 @@ const DeliveryTrackingMap = dynamic(() => import("./DeliveryTrackingMap"), {
   ),
 });
 
-export default function DeliveryTrackingMapLoader({ orderId }: { orderId: string }) {
-  return <DeliveryTrackingMap orderId={orderId} />;
+export default function DeliveryTrackingMapLoader({
+  orderId,
+  destLat,
+  destLng,
+}: {
+  orderId: string;
+  destLat?: number | null;
+  destLng?: number | null;
+}) {
+  return <DeliveryTrackingMap orderId={orderId} destLat={destLat} destLng={destLng} />;
 }

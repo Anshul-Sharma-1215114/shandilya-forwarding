@@ -38,7 +38,11 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ id
 
       {TRACKABLE_STATUSES.has(order.status) && (
         <Card title="Live Location">
-          <DeliveryTrackingMapLoader orderId={order.id} />
+          <DeliveryTrackingMapLoader
+            orderId={order.id}
+            destLat={order.deliveryAddress.lat}
+            destLng={order.deliveryAddress.lng}
+          />
         </Card>
       )}
 

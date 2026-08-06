@@ -24,6 +24,8 @@ export type Address = {
   state: string;
   pincode: string;
   isDefault: boolean;
+  lat: number | null;
+  lng: number | null;
   createdAt: string;
 };
 
@@ -141,7 +143,15 @@ export type StoreStatus = {
   timezone: string;
 };
 
-export type DeliveryPartner = { id: string; name: string; phone: string; isAvailable: boolean };
+export type DeliveryPartner = {
+  id: string;
+  name: string;
+  phone: string;
+  isAvailable: boolean;
+  vehicleType: string | null;
+  vehicleNumber: string | null;
+  emergencyContact: string | null;
+};
 
 export type DeliveryLocation = { lat: number | null; lng: number | null; updatedAt: string | null };
 
