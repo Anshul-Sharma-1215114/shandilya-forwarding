@@ -99,7 +99,7 @@ export default function DistributionNetwork() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.3 + i * 0.07, ease: [0.22, 1, 0.36, 1] }}
                 whileHover={{ scale: 1.08, y: -4 }}
-                className="absolute flex w-24 -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-2 rounded-2xl bg-white p-3 text-center shadow-lg ring-1 ring-ink-900/8"
+                className="absolute flex w-24 -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-2 rounded-2xl bg-surface p-3 text-center shadow-lg ring-1 ring-ink-900/8"
                 style={{ left: `${x}%`, top: `${y}%` }}
               >
                 <span className="flex h-9 w-9 items-center justify-center rounded-full bg-secondary-50 text-secondary-600">
@@ -124,7 +124,7 @@ export default function DistributionNetwork() {
               return (
                 <div
                   key={node.label}
-                  className="flex flex-col items-center gap-2 rounded-2xl bg-white p-4 text-center shadow-sm ring-1 ring-ink-900/8"
+                  className="flex flex-col items-center gap-2 rounded-2xl bg-surface p-4 text-center shadow-sm ring-1 ring-ink-900/8"
                 >
                   <span className="flex h-9 w-9 items-center justify-center rounded-full bg-secondary-50 text-secondary-600">
                     <Icon size={16} />

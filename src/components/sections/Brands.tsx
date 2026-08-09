@@ -62,7 +62,7 @@ export default function Brands() {
                       transition={{ duration: 0.6 }}
                       className={cn(
                         "relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-lg",
-                        brand.imageFit === "contain" && "bg-white"
+                        brand.imageFit === "contain" && "bg-surface"
                       )}
                     >
                       <Image

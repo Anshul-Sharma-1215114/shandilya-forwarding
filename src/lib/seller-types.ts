@@ -151,6 +151,10 @@ export type DeliveryPartner = {
   vehicleType: string | null;
   vehicleNumber: string | null;
   emergencyContact: string | null;
+  lastKnownLat: number | null;
+  lastKnownLng: number | null;
+  locationUpdatedAt: string | null;
+  activeOrder: { id: string; status: string } | null;
 };
 
 export type DeliveryLocation = { lat: number | null; lng: number | null; updatedAt: string | null };

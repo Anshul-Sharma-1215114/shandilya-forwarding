@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { Plus, Pencil, ImageOff } from "lucide-react";
 import type { Brand, Product } from "@/lib/seller-types";
 import { BRAND_LABELS } from "@/lib/seller-types";
 import { adjustStock, createProduct, updateProduct } from "./actions";
@@ -12,7 +13,7 @@ function formatPrice(paise: number) {
 
 const BRANDS: Brand[] = ["ZEALUP_WATER", "PARLE_AGRO", "BALAJI_WAFERS"];
 const inputClass =
-  "w-full rounded-lg border border-ink-900/15 px-3 py-2 text-sm text-ink-900 outline-none focus:border-primary-500";
+  "w-full rounded-lg border border-ink-900/12 px-3 py-2 text-sm text-ink-900 outline-none transition-colors focus:border-primary-500";
 
 type FormState = {
   slug: string;
@@ -136,14 +137,15 @@ export default function ProductsTable({ products }: { products: Product[] }) {
       <div className="flex items-center justify-between">
         <button
           onClick={startCreate}
-          className="rounded-full bg-primary-600 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700"
+          className="flex items-center gap-1.5 rounded-full bg-primary-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-primary-600/25 transition-colors hover:bg-primary-700"
         >
-          + Add Product
+          <Plus className="h-4 w-4" strokeWidth={2.5} />
+          Add Product
         </button>
       </div>
 
       {editingId && (
-        <div className="rounded-2xl border border-ink-900/8 bg-white p-5">
+        <div className="rounded-2xl bg-surface p-5 card-elevated">
           <h2 className="mb-3 text-sm font-semibold text-ink-900">
             {editingId === "new" ? "New Product" : "Edit Product"}
           </h2>
@@ -219,13 +221,13 @@ export default function ProductsTable({ products }: { products: Product[] }) {
             <button
               disabled={busy}
               onClick={() => void handleSubmit()}
-              className="rounded-full bg-primary-600 px-4 py-2 text-sm font-semibold text-white disabled:opacity-50"
+              className="rounded-full bg-primary-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-primary-600/25 transition-colors hover:bg-primary-700 disabled:opacity-50"
             >
               {busy ? "Saving..." : "Save"}
             </button>
             <button
               onClick={() => setEditingId(null)}
-              className="rounded-full border border-ink-900/15 px-4 py-2 text-sm font-semibold text-ink-700"
+              className="rounded-full border border-ink-900/15 px-4 py-2 text-sm font-semibold text-ink-700 transition-colors hover:bg-cream-dim"
             >
               Cancel
             </button>
@@ -233,36 +235,48 @@ export default function ProductsTable({ products }: { products: Product[] }) {
         </div>
       )}
 
-      {error && <p className="text-sm text-red-600">{error}</p>}
+      {error && <p className="text-sm font-medium text-accent-600">{error}</p>}
 
-      <div className="overflow-x-auto rounded-2xl border border-ink-900/8 bg-white">
+      <div className="overflow-x-auto rounded-2xl bg-surface card-elevated">
         <table className="w-full text-left text-sm">
-          <thead className="border-b border-ink-900/8 text-xs uppercase text-ink-400">
+          <thead className="border-b border-ink-900/6 text-[11px] font-semibold uppercase tracking-wide text-ink-400">
             <tr>
-              <th className="px-4 py-3">Product</th>
-              <th className="px-4 py-3">Brand</th>
-              <th className="px-4 py-3">Price</th>
-              <th className="px-4 py-3">Stock</th>
-              <th className="px-4 py-3">Status</th>
-              <th className="px-4 py-3" />
+              <th className="px-5 py-3.5">Product</th>
+              <th className="px-5 py-3.5">Brand</th>
+              <th className="px-5 py-3.5">Price</th>
+              <th className="px-5 py-3.5">Stock</th>
+              <th className="px-5 py-3.5">Status</th>
+              <th className="px-5 py-3.5" />
             </tr>
           </thead>
           <tbody>
             {products.map((p) => (
-              <tr key={p.id} className="border-b border-ink-900/5 align-top last:border-0">
-                <td className="px-4 py-3">
-                  <p className="font-medium text-ink-900">{p.name}</p>
-                  <p className="text-xs text-ink-400">{p.category}</p>
+              <tr key={p.id} className="border-b border-ink-900/5 align-top transition-colors last:border-0 hover:bg-cream-dim/70">
+                <td className="px-5 py-3.5">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-ink-100">
+                      {p.imageUrl ? (
+                        // eslint-disable-next-line @next/next/no-img-element -- small external thumbnail, not worth next/image remote config
+                        <img src={p.imageUrl} alt="" className="h-full w-full object-cover" />
+                      ) : (
+                        <ImageOff className="h-4 w-4 text-ink-300" strokeWidth={1.75} />
+                      )}
+                    </div>
+                    <div>
+                      <p className="font-medium leading-tight text-ink-900">{p.name}</p>
+                      <p className="text-xs text-ink-400">{p.category}</p>
+                    </div>
+                  </div>
                 </td>
-                <td className="px-4 py-3 text-ink-600">{BRAND_LABELS[p.brand]}</td>
-                <td className="px-4 py-3 font-semibold text-ink-900">{formatPrice(p.priceInPaise)}</td>
-                <td className="px-4 py-3">
-                  <p className="mb-1 font-semibold text-ink-900">{p.stockQty}</p>
+                <td className="px-5 py-3.5 text-ink-600">{BRAND_LABELS[p.brand]}</td>
+                <td className="px-5 py-3.5 font-semibold tabular-nums text-ink-900">{formatPrice(p.priceInPaise)}</td>
+                <td className="px-5 py-3.5">
+                  <p className="mb-1.5 font-semibold tabular-nums text-ink-900">{p.stockQty}</p>
                   <div className="flex items-center gap-1">
                     <input
                       type="number"
                       placeholder="±qty"
-                      className="w-16 rounded border border-ink-900/15 px-1.5 py-1 text-xs"
+                      className="w-16 rounded-md border border-ink-900/12 px-1.5 py-1 text-xs outline-none focus:border-primary-500"
                       value={stockDraft[p.id]?.qty ?? ""}
                       onChange={(e) =>
                         setStockDraft((prev) => ({
@@ -273,7 +287,7 @@ export default function ProductsTable({ products }: { products: Product[] }) {
                     />
                     <input
                       placeholder="reason"
-                      className="w-20 rounded border border-ink-900/15 px-1.5 py-1 text-xs"
+                      className="w-20 rounded-md border border-ink-900/12 px-1.5 py-1 text-xs outline-none focus:border-primary-500"
                       value={stockDraft[p.id]?.reason ?? ""}
                       onChange={(e) =>
                         setStockDraft((prev) => ({
@@ -283,38 +297,40 @@ export default function ProductsTable({ products }: { products: Product[] }) {
                       }
                     />
                     <button
+                      data-theme="light"
                       disabled={busy}
                       onClick={() => void handleStockAdjust(p)}
-                      className="rounded border border-primary-600 px-2 py-1 text-xs font-semibold text-primary-700 disabled:opacity-50"
+                      className="rounded-md bg-ink-900 px-2 py-1 text-xs font-semibold text-white transition-colors hover:bg-ink-800 disabled:opacity-50"
                     >
                       Go
                     </button>
                   </div>
                 </td>
-                <td className="px-4 py-3">
+                <td className="px-5 py-3.5">
                   <button
                     disabled={busy}
                     onClick={() => void handleToggleActive(p)}
-                    className={`rounded-full px-2.5 py-1 text-xs font-bold uppercase ${
-                      p.active ? "bg-primary-50 text-primary-700" : "bg-ink-100 text-ink-500"
+                    className={`rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide transition-colors ${
+                      p.active ? "bg-primary-100 text-primary-700" : "bg-ink-100 text-ink-500"
                     }`}
                   >
                     {p.active ? "Active" : "Inactive"}
                   </button>
                 </td>
-                <td className="px-4 py-3">
+                <td className="px-5 py-3.5">
                   <button
                     onClick={() => startEdit(p)}
-                    className="text-xs font-semibold text-primary-700 underline"
+                    aria-label="Edit product"
+                    className="flex h-8 w-8 items-center justify-center rounded-lg text-ink-400 transition-colors hover:bg-primary-50 hover:text-primary-700"
                   >
-                    Edit
+                    <Pencil className="h-[15px] w-[15px]" strokeWidth={2} />
                   </button>
                 </td>
               </tr>
             ))}
             {products.length === 0 && (
               <tr>
-                <td colSpan={6} className="px-4 py-10 text-center text-ink-400">
+                <td colSpan={6} className="px-4 py-14 text-center text-ink-400">
                   No products yet.
                 </td>
               </tr>

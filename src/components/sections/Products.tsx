@@ -51,7 +51,7 @@ export default function Products() {
                 "relative rounded-full px-5 py-2.5 text-sm font-semibold transition-colors duration-300",
                 filter === f
                   ? "bg-primary-700 text-white shadow-[0_8px_20px_-8px_rgba(20,102,63,0.6)]"
-                  : "bg-white text-ink-600 ring-1 ring-ink-900/10 hover:text-primary-700"
+                  : "bg-surface text-ink-600 ring-1 ring-ink-900/10 hover:text-primary-700"
               )}
             >
               {f}
@@ -69,7 +69,7 @@ export default function Products() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4, delay: (i % 8) * 0.03, ease: [0.22, 1, 0.36, 1] }}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-ink-900/8 bg-white shadow-sm transition-shadow duration-300 hover:shadow-xl"
+                className="group flex flex-col overflow-hidden rounded-2xl border border-ink-900/8 bg-surface shadow-sm transition-shadow duration-300 hover:shadow-xl"
               >
                 <div className="relative aspect-square w-full overflow-hidden bg-cream-dim">
                   <div className="absolute inset-0 transition-transform duration-500 group-hover:scale-105">

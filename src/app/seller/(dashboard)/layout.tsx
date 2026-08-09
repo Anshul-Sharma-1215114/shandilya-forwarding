@@ -31,7 +31,9 @@ export default async function SellerDashboardLayout({ children }: { children: Re
   return (
     <div className="flex min-h-screen bg-cream-dim">
       <Sidebar userName={user.name} />
-      <main className="flex-1 p-6 lg:p-10">{children}</main>
+      <main className="flex-1 p-6 lg:p-10">
+        <div className="mx-auto max-w-6xl">{children}</div>
+      </main>
     </div>
   );
 }

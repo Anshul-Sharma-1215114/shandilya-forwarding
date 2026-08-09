@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { Power, PowerOff, RotateCcw, Clock } from "lucide-react";
 import type { StoreStatus } from "@/lib/seller-types";
 import { updateStoreStatus } from "./actions";
 
 const inputClass =
-  "rounded-lg border border-ink-900/15 px-3 py-2 text-sm text-ink-900 outline-none focus:border-primary-500";
+  "rounded-lg border border-ink-900/12 px-3 py-2 text-sm text-ink-900 outline-none transition-colors focus:border-primary-500";
 
 const REASON_LABEL: Record<StoreStatus["reason"], string> = {
   open: "Open",
@@ -43,38 +44,61 @@ export default function StoreForm({ status }: { status: StoreStatus }) {
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="rounded-2xl border border-ink-900/8 bg-white p-5">
-        <p className="text-sm font-semibold text-ink-900">Current Status</p>
-        <p className="text-2xl font-extrabold text-ink-900">{status.isOpen ? "Open" : "Closed"}</p>
-        <p className="text-xs text-ink-500">{REASON_LABEL[status.reason]}</p>
+      <div className="rounded-2xl bg-surface p-5 card-elevated">
+        <p className="text-xs font-semibold uppercase tracking-wide text-ink-400">Current Status</p>
+        <div className="mt-1.5 flex items-center gap-2.5">
+          <span
+            className={`flex h-9 w-9 items-center justify-center rounded-full ${
+              status.isOpen ? "bg-primary-100 text-primary-700" : "bg-accent-50 text-accent-600"
+            }`}
+          >
+            {status.isOpen ? (
+              <Power className="h-[18px] w-[18px]" strokeWidth={2.25} />
+            ) : (
+              <PowerOff className="h-[18px] w-[18px]" strokeWidth={2.25} />
+            )}
+          </span>
+          <div>
+            <p className="font-display text-xl font-bold leading-tight text-ink-900">
+              {status.isOpen ? "Open" : "Closed"}
+            </p>
+            <p className="text-xs text-ink-500">{REASON_LABEL[status.reason]}</p>
+          </div>
+        </div>
 
         <div className="mt-4 flex flex-wrap gap-2">
           <button
             disabled={busy}
             onClick={() => void handleManualOverride(true)}
-            className="rounded-full bg-primary-600 px-4 py-2 text-sm font-semibold text-white disabled:opacity-50"
+            className="flex items-center gap-1.5 rounded-full bg-primary-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-primary-600/25 transition-colors hover:bg-primary-700 disabled:opacity-50"
           >
+            <Power className="h-3.5 w-3.5" strokeWidth={2.5} />
             Force Open
           </button>
           <button
             disabled={busy}
             onClick={() => void handleManualOverride(false)}
-            className="rounded-full border border-accent-600 px-4 py-2 text-sm font-semibold text-accent-600 disabled:opacity-50"
+            className="flex items-center gap-1.5 rounded-full border border-accent-600 px-4 py-2 text-sm font-semibold text-accent-600 transition-colors hover:bg-accent-50 disabled:opacity-50"
           >
+            <PowerOff className="h-3.5 w-3.5" strokeWidth={2.5} />
             Force Closed
           </button>
           <button
             disabled={busy}
             onClick={() => void handleManualOverride(null)}
-            className="rounded-full border border-ink-900/15 px-4 py-2 text-sm font-semibold text-ink-700 disabled:opacity-50"
+            className="flex items-center gap-1.5 rounded-full border border-ink-900/15 px-4 py-2 text-sm font-semibold text-ink-700 transition-colors hover:bg-cream-dim disabled:opacity-50"
           >
+            <RotateCcw className="h-3.5 w-3.5" strokeWidth={2.5} />
             Use Schedule
           </button>
         </div>
       </div>
 
-      <div className="rounded-2xl border border-ink-900/8 bg-white p-5">
-        <p className="mb-3 text-sm font-semibold text-ink-900">Business Hours ({status.timezone})</p>
+      <div className="rounded-2xl bg-surface p-5 card-elevated">
+        <div className="mb-3 flex items-center gap-2">
+          <Clock className="h-4 w-4 text-ink-400" strokeWidth={2} />
+          <p className="text-sm font-semibold text-ink-900">Business Hours ({status.timezone})</p>
+        </div>
         <div className="flex flex-wrap items-end gap-3">
           <label className="flex flex-col gap-1 text-xs font-medium text-ink-600">
             Opens
@@ -102,14 +126,14 @@ export default function StoreForm({ status }: { status: StoreStatus }) {
           <button
             disabled={busy}
             onClick={() => void handleSaveHours()}
-            className="rounded-full bg-primary-600 px-4 py-2 text-sm font-semibold text-white disabled:opacity-50"
+            className="rounded-full bg-primary-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-primary-600/25 transition-colors hover:bg-primary-700 disabled:opacity-50"
           >
             {busy ? "Saving..." : "Save Hours"}
           </button>
         </div>
       </div>
 
-      {error && <p className="text-sm text-red-600">{error}</p>}
+      {error && <p className="text-sm font-medium text-accent-600">{error}</p>}
     </div>
   );
 }

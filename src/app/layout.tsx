@@ -65,6 +65,17 @@ export default function RootLayout({
       className={`${inter.variable} ${poppins.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-cream text-ink-800">
+        {/*
+          Runs before hydration so an explicit stored preference wins over
+          the OS default on first paint - no flash of the wrong theme.
+          Silent no-op when nothing's stored yet (the CSS media query
+          already handles that "system" case on its own).
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();`,
+          }}
+        />
         <PublicNavbar />
         <main className="flex-1">{children}</main>
         <PublicFooterChrome />

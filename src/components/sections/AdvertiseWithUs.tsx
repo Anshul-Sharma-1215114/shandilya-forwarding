@@ -49,7 +49,7 @@ export default function AdvertiseWithUs() {
               <StaggerGroup className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
                 {BENEFITS.map(({ icon: Icon, label }) => (
                   <StaggerItem key={label}>
-                    <div className="flex h-full items-center gap-2.5 rounded-xl border border-ink-900/8 bg-white px-4 py-3">
+                    <div className="flex h-full items-center gap-2.5 rounded-xl border border-ink-900/8 bg-surface px-4 py-3 shadow-sm">
                       <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-secondary-50 text-secondary-600">
                         <Icon size={15} />
                       </span>
@@ -87,7 +87,7 @@ export default function AdvertiseWithUs() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.35, duration: 0.55 }}
-                  className="absolute -bottom-6 left-1/2 w-64 -translate-x-1/2 rounded-2xl bg-white p-4 text-center shadow-xl ring-1 ring-black/5"
+                  className="absolute -bottom-6 left-1/2 w-64 -translate-x-1/2 rounded-2xl bg-surface p-4 text-center shadow-xl ring-1 ring-black/5"
                 >
                   <p className="text-[11px] font-bold uppercase tracking-wide text-ink-400">
                     Open to

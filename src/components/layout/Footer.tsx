@@ -8,7 +8,7 @@ import { BRANDS } from "@/data/brands";
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-ink-900/8 bg-ink-900 text-ink-100">
+    <footer data-theme="light" className="relative border-t border-ink-900/8 bg-ink-900 text-ink-100">
       <Container className="py-16">
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div>

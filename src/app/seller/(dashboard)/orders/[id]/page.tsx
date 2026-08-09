@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ArrowLeft, User, MapPin, Package, Clock, Receipt } from "lucide-react";
 import { sellerFetch, SellerApiError } from "@/lib/seller-session";
 import type { DeliveryPartner, Order } from "@/lib/seller-types";
 import OrderActions from "./OrderActions";
@@ -30,14 +32,23 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ id
   return (
     <div className="flex max-w-3xl flex-col gap-6">
       <div>
-        <h1 className="font-display text-2xl font-bold text-ink-900">Order #{order.id.slice(-8)}</h1>
+        <Link
+          href="/seller"
+          className="mb-3 inline-flex items-center gap-1.5 text-sm font-medium text-ink-500 transition-colors hover:text-primary-700"
+        >
+          <ArrowLeft className="h-3.5 w-3.5" strokeWidth={2.5} />
+          Back to Dashboard
+        </Link>
+        <h1 className="font-display text-[26px] font-bold tracking-tight text-ink-900">
+          Order <span className="font-mono text-primary-700">#{order.id.slice(-8)}</span>
+        </h1>
         <p className="text-sm text-ink-500">Placed {new Date(order.createdAt).toLocaleString("en-IN")}</p>
       </div>
 
       <OrderActions order={order} partners={partners} />
 
       {TRACKABLE_STATUSES.has(order.status) && (
-        <Card title="Live Location">
+        <Card title="Live Location" icon={MapPin}>
           <DeliveryTrackingMapLoader
             orderId={order.id}
             destLat={order.deliveryAddress.lat}
@@ -47,14 +58,14 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ id
       )}
 
       <div className="grid gap-6 sm:grid-cols-2">
-        <Card title="Customer">
+        <Card title="Customer" icon={User}>
           <p className="font-semibold text-ink-900">{order.user.name}</p>
           <p className="text-sm text-ink-500">+91 {order.user.phone}</p>
           {order.user.email && <p className="text-sm text-ink-500">{order.user.email}</p>}
         </Card>
 
-        <Card title="Delivery Address">
-          <p className="text-sm text-ink-700">
+        <Card title="Delivery Address" icon={MapPin}>
+          <p className="text-sm leading-relaxed text-ink-700">
             {order.deliveryAddress.line1}
             {order.deliveryAddress.line2 ? `, ${order.deliveryAddress.line2}` : ""}, {order.deliveryAddress.city},{" "}
             {order.deliveryAddress.state} {order.deliveryAddress.pincode}
@@ -62,43 +73,53 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ id
         </Card>
       </div>
 
-      <Card title="Items">
-        <div className="flex flex-col gap-2">
+      <Card title="Items" icon={Package}>
+        <div className="flex flex-col gap-3">
           {order.items.map((item) => (
             <div key={item.id} className="flex items-center justify-between text-sm">
-              <span className="text-ink-700">
-                {item.quantity} × {item.name}
+              <span className="flex items-center gap-2 text-ink-700">
+                <span className="flex h-5 min-w-5 items-center justify-center rounded-md bg-ink-100 px-1 text-[11px] font-bold text-ink-600">
+                  {item.quantity}
+                </span>
+                {item.name}
               </span>
-              <span className="font-semibold text-ink-900">
+              <span className="font-semibold tabular-nums text-ink-900">
                 {formatPrice(item.unitPriceInPaise * item.quantity)}
               </span>
             </div>
           ))}
-          <div className="mt-2 flex items-center justify-between border-t border-ink-900/8 pt-2">
+          <div className="mt-1 flex items-center justify-between border-t border-ink-900/8 pt-3">
             <span className="font-semibold text-ink-900">Total</span>
-            <span className="font-extrabold text-primary-700">{formatPrice(order.totalInPaise)}</span>
+            <span className="font-display text-lg font-extrabold tabular-nums text-primary-700">
+              {formatPrice(order.totalInPaise)}
+            </span>
           </div>
           {order.payment && (
-            <p className="text-xs text-ink-400">
-              Payment: {order.payment.status}{" "}
+            <div className="flex items-center gap-1.5 text-xs text-ink-400">
+              <Receipt className="h-3.5 w-3.5" strokeWidth={2} />
+              {order.payment.status}{" "}
               {order.payment.provider === "cod" ? "via Cash on Delivery" : "via Razorpay"}
-            </p>
+            </div>
           )}
         </div>
       </Card>
 
       {order.timeline && order.timeline.length > 0 && (
-        <Card title="Timeline">
-          <div className="flex flex-col gap-2 text-sm">
-            {order.timeline.map((event) => (
-              <div key={event.id} className="flex items-start justify-between gap-4">
-                <span className="text-ink-700">
-                  {event.event}
-                  {event.remarks ? ` — ${event.remarks}` : ""}
-                </span>
-                <span className="shrink-0 text-xs text-ink-400">
-                  {new Date(event.createdAt).toLocaleString("en-IN")}
-                </span>
+        <Card title="Timeline" icon={Clock}>
+          <div className="flex flex-col">
+            {order.timeline.map((event, i) => (
+              <div key={event.id} className="flex gap-3">
+                <div className="flex flex-col items-center">
+                  <div className="mt-1 h-2 w-2 shrink-0 rounded-full bg-primary-500" />
+                  {i < order.timeline!.length - 1 && <div className="w-px flex-1 bg-ink-900/8" />}
+                </div>
+                <div className="flex-1 pb-4">
+                  <p className="text-sm text-ink-800">
+                    {event.event}
+                    {event.remarks ? <span className="text-ink-500"> — {event.remarks}</span> : null}
+                  </p>
+                  <p className="text-xs text-ink-400">{new Date(event.createdAt).toLocaleString("en-IN")}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -108,10 +129,21 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ id
   );
 }
 
-function Card({ title, children }: { title: string; children: React.ReactNode }) {
+function Card({
+  title,
+  icon: Icon,
+  children,
+}: {
+  title: string;
+  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  children: React.ReactNode;
+}) {
   return (
-    <div className="rounded-2xl border border-ink-900/8 bg-white p-5">
-      <h2 className="mb-3 text-xs font-semibold uppercase tracking-wide text-ink-400">{title}</h2>
+    <div className="rounded-2xl bg-surface p-5 card-elevated">
+      <h2 className="mb-3 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-ink-400">
+        <Icon className="h-3.5 w-3.5" strokeWidth={2.25} />
+        {title}
+      </h2>
       {children}
     </div>
   );

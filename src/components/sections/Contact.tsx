@@ -61,17 +61,20 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <a
+                <motion.a
                   href={`https://wa.me/${COMPANY.whatsapp}?text=${encodeURIComponent(
                     COMPANY.whatsappDefaultMessage
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-7 flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-sm font-bold text-white transition-transform duration-300 hover:scale-[1.02]"
+                  whileHover={{ scale: 1.03, y: -2 }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                  className="mt-7 flex items-center justify-center gap-2 rounded-full bg-[#25D366] px-5 py-3 text-sm font-bold text-white shadow-[0_10px_30px_-10px_rgba(37,211,102,0.6)]"
                 >
                   <MessageCircle size={17} />
                   Chat on WhatsApp
-                </a>
+                </motion.a>
 
                 <div className="mt-6 flex items-center gap-3">
                   {[
@@ -106,7 +109,7 @@ export default function Contact() {
 
           {/* Form column */}
           <Reveal direction="right" className="lg:col-span-3">
-            <div className="relative overflow-hidden rounded-[1.75rem] border border-ink-900/8 bg-white p-7 shadow-lg sm:p-9">
+            <div className="relative overflow-hidden rounded-[1.75rem] border border-ink-900/8 bg-surface p-7 shadow-lg sm:p-9">
               <AnimatePresence mode="wait">
                 {submitted ? (
                   <motion.div
@@ -156,7 +159,7 @@ export default function Contact() {
                         id="inquiryType"
                         required
                         defaultValue=""
-                        className="rounded-xl border border-ink-900/12 bg-cream px-4 py-3 text-sm text-ink-800 outline-none transition-colors focus:border-primary-500"
+                        className="rounded-xl border border-ink-900/12 bg-cream px-4 py-3 text-sm text-ink-800 shadow-[inset_0_1px_2px_rgba(28,32,25,0.04)] outline-none transition-all focus:border-primary-500 focus:shadow-[0_0_0_4px_rgba(22,127,76,0.12)]"
                       >
                         <option value="" disabled>
                           Select inquiry type
@@ -220,7 +223,7 @@ function Field({
         type={type}
         placeholder={placeholder}
         required={required}
-        className="rounded-xl border border-ink-900/12 bg-cream px-4 py-3 text-sm text-ink-800 outline-none transition-colors focus:border-primary-500"
+        className="rounded-xl border border-ink-900/12 bg-cream px-4 py-3 text-sm text-ink-800 shadow-[inset_0_1px_2px_rgba(28,32,25,0.04)] outline-none transition-all focus:border-primary-500 focus:shadow-[0_0_0_4px_rgba(22,127,76,0.12)]"
       />
     </div>
   );

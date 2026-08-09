@@ -2,11 +2,17 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { Plus, X, Bike, Car } from "lucide-react";
 import type { DeliveryPartner } from "@/lib/seller-types";
 import { registerDeliveryPartner, type RegisterDeliveryPartnerInput } from "./actions";
 
 const inputClass =
-  "w-full rounded-lg border border-ink-900/15 px-3 py-2 text-sm text-ink-900 outline-none focus:border-primary-500";
+  "w-full rounded-lg border border-ink-900/12 px-3 py-2 text-sm text-ink-900 outline-none transition-colors focus:border-primary-500";
+
+function VehicleIcon({ type }: { type: string | null }) {
+  const Icon = type === "car" ? Car : Bike;
+  return <Icon className="h-[15px] w-[15px]" strokeWidth={2.25} />;
+}
 
 type FormState = {
   phone: string;
@@ -67,14 +73,15 @@ export default function DeliveryPartnersTable({ partners }: { partners: Delivery
       <div>
         <button
           onClick={() => setOpen((v) => !v)}
-          className="rounded-full bg-primary-600 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700"
+          className="flex items-center gap-1.5 rounded-full bg-primary-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-primary-600/25 transition-colors hover:bg-primary-700"
         >
-          {open ? "Cancel" : "+ Register Delivery Partner"}
+          {open ? <X className="h-4 w-4" strokeWidth={2.5} /> : <Plus className="h-4 w-4" strokeWidth={2.5} />}
+          {open ? "Cancel" : "Register Delivery Partner"}
         </button>
       </div>
 
       {open && (
-        <div className="rounded-2xl border border-ink-900/8 bg-white p-5">
+        <div className="rounded-2xl bg-surface p-5 card-elevated">
           <div className="grid gap-3 sm:grid-cols-2">
             <Field label="Phone">
               <input
@@ -130,41 +137,48 @@ export default function DeliveryPartnersTable({ partners }: { partners: Delivery
             <button
               disabled={busy || !canSave}
               onClick={() => void handleSubmit()}
-              className="rounded-full bg-primary-600 px-4 py-2 text-sm font-semibold text-white disabled:opacity-50"
+              className="rounded-full bg-primary-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-primary-600/25 transition-colors hover:bg-primary-700 disabled:opacity-50"
             >
               {busy ? "Registering..." : "Register"}
             </button>
           </div>
-          {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
+          {error && <p className="mt-2 text-sm font-medium text-accent-600">{error}</p>}
         </div>
       )}
 
-      <div className="overflow-x-auto rounded-2xl border border-ink-900/8 bg-white">
+      <div className="overflow-x-auto rounded-2xl bg-surface card-elevated">
         <table className="w-full text-left text-sm">
-          <thead className="border-b border-ink-900/8 text-xs uppercase text-ink-400">
+          <thead className="border-b border-ink-900/6 text-[11px] font-semibold uppercase tracking-wide text-ink-400">
             <tr>
-              <th className="px-4 py-3">Name</th>
-              <th className="px-4 py-3">Phone</th>
-              <th className="px-4 py-3">Vehicle</th>
-              <th className="px-4 py-3">Emergency Contact</th>
-              <th className="px-4 py-3">Status</th>
+              <th className="px-5 py-3.5">Name</th>
+              <th className="px-5 py-3.5">Phone</th>
+              <th className="px-5 py-3.5">Vehicle</th>
+              <th className="px-5 py-3.5">Emergency Contact</th>
+              <th className="px-5 py-3.5">Status</th>
             </tr>
           </thead>
           <tbody>
             {partners.map((p) => (
-              <tr key={p.id} className="border-b border-ink-900/5 last:border-0">
-                <td className="px-4 py-3 font-semibold text-ink-900">{p.name}</td>
-                <td className="px-4 py-3 text-ink-600">+91 {p.phone}</td>
-                <td className="px-4 py-3 capitalize text-ink-600">
+              <tr key={p.id} className="border-b border-ink-900/5 transition-colors last:border-0 hover:bg-cream-dim/70">
+                <td className="px-5 py-3.5">
+                  <div className="flex items-center gap-2.5">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-blue-50 text-blue-600">
+                      <VehicleIcon type={p.vehicleType} />
+                    </div>
+                    <span className="font-medium text-ink-900">{p.name}</span>
+                  </div>
+                </td>
+                <td className="px-5 py-3.5 text-ink-600">+91 {p.phone}</td>
+                <td className="px-5 py-3.5 capitalize text-ink-600">
                   {p.vehicleType ?? "-"} {p.vehicleNumber ? `(${p.vehicleNumber})` : ""}
                 </td>
-                <td className="px-4 py-3 text-ink-600">
+                <td className="px-5 py-3.5 text-ink-600">
                   {p.emergencyContact ? `+91 ${p.emergencyContact}` : "-"}
                 </td>
-                <td className="px-4 py-3">
+                <td className="px-5 py-3.5">
                   <span
-                    className={`rounded-full px-2.5 py-1 text-xs font-bold uppercase ${
-                      p.isAvailable ? "bg-primary-50 text-primary-700" : "bg-ink-100 text-ink-500"
+                    className={`rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide ${
+                      p.isAvailable ? "bg-primary-100 text-primary-700" : "bg-ink-100 text-ink-500"
                     }`}
                   >
                     {p.isAvailable ? "Available" : "Unavailable"}
@@ -174,7 +188,7 @@ export default function DeliveryPartnersTable({ partners }: { partners: Delivery
             ))}
             {partners.length === 0 && (
               <tr>
-                <td colSpan={5} className="px-4 py-10 text-center text-ink-400">
+                <td colSpan={5} className="px-4 py-14 text-center text-ink-400">
                   No delivery partners registered yet.
                 </td>
               </tr>

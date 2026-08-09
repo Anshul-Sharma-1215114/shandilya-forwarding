@@ -47,7 +47,7 @@ export default function ProductImage({
           className
         )}
       >
-        <div className={cn("flex h-16 w-16 items-center justify-center rounded-2xl bg-white ring-1", ACCENT_RING[accent])}>
+        <div className={cn("flex h-16 w-16 items-center justify-center rounded-2xl bg-surface ring-1", ACCENT_RING[accent])}>
           <Package size={28} className={ACCENT_ICON[accent]} strokeWidth={1.5} />
         </div>
         <span className="font-display text-sm font-semibold leading-snug text-ink-700">

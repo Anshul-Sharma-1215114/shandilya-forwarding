@@ -38,7 +38,7 @@ export default function Process() {
                   transition={{ duration: 0.55, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
                   className="relative flex flex-col items-center text-center"
                 >
-                  <div className="relative z-10 flex h-[72px] w-[72px] items-center justify-center rounded-full bg-white shadow-[0_10px_30px_-10px_rgba(28,32,25,0.25)] ring-4 ring-cream">
+                  <div className="relative z-10 flex h-[72px] w-[72px] items-center justify-center rounded-full bg-surface shadow-[0_10px_30px_-10px_rgba(28,32,25,0.25)] ring-4 ring-cream">
                     <span className="absolute -right-1 -top-1 flex h-6 w-6 items-center justify-center rounded-full bg-secondary-500 text-[10px] font-bold text-white">
                       {step.step}
                     </span>

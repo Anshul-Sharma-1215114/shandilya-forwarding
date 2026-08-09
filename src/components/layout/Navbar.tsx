@@ -7,6 +7,7 @@ import Link from "next/link";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import CompanyLogo from "@/components/ui/CompanyLogo";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 import { NAV_ITEMS } from "@/data/nav";
 import { cn } from "@/lib/utils";
 
@@ -93,19 +94,23 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <div className="hidden xl:block">
+          <div className="hidden items-center gap-3 xl:flex">
+            <ThemeToggle />
             <Button href="#contact" variant="primary" withIcon>
               Join Us
             </Button>
           </div>
 
-          <button
-            aria-label="Toggle menu"
-            onClick={() => setOpen((v) => !v)}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-ink-900/10 bg-white/70 text-ink-800 backdrop-blur xl:hidden"
-          >
-            {open ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          <div className="flex items-center gap-2 xl:hidden">
+            <ThemeToggle />
+            <button
+              aria-label="Toggle menu"
+              onClick={() => setOpen((v) => !v)}
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-ink-900/10 bg-white/70 text-ink-800 backdrop-blur"
+            >
+              {open ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </nav>
       </Container>
 

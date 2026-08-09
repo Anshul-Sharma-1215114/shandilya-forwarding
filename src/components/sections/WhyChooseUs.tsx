@@ -29,9 +29,13 @@ const ICONS: Record<string, LucideIcon> = {
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-choose-us" className="relative overflow-hidden py-24 sm:py-32">
+    <section
+      id="why-choose-us"
+      data-theme="light"
+      className="relative overflow-hidden py-24 sm:py-32"
+    >
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-ink-900">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(34,157,95,0.35),transparent_45%),radial-gradient(circle_at_80%_70%,rgba(250,124,20,0.25),transparent_45%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(44,107,201,0.35),transparent_45%),radial-gradient(circle_at_80%_70%,rgba(239,74,31,0.25),transparent_45%)]" />
         <div className="grain-overlay opacity-[0.06]" />
       </div>
 

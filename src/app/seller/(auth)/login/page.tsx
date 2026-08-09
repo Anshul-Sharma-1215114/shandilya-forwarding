@@ -56,7 +56,7 @@ export default function SellerLoginPage() {
   }
 
   return (
-    <div className="w-full max-w-sm rounded-2xl border border-ink-900/8 bg-white p-8 shadow-sm">
+    <div className="w-full max-w-sm rounded-2xl border border-ink-900/8 bg-surface p-8 shadow-sm">
       <h1 className="font-display text-xl font-bold text-ink-900">
         {step === "phone" ? "Seller Sign In" : "Enter the code we sent"}
       </h1>
@@ -70,7 +70,7 @@ export default function SellerLoginPage() {
         {step === "phone" && (
           <>
             <input
-              className="w-full rounded-xl border border-ink-900/15 bg-white px-4 py-3 text-center text-base text-ink-900 outline-none focus:border-primary-500"
+              className="w-full rounded-xl border border-ink-900/15 bg-surface px-4 py-3 text-center text-base text-ink-900 outline-none focus:border-primary-500"
               placeholder="10-digit mobile number"
               inputMode="numeric"
               maxLength={10}
@@ -95,7 +95,7 @@ export default function SellerLoginPage() {
               </p>
             )}
             <input
-              className="w-full rounded-xl border border-ink-900/15 bg-white px-4 py-3 text-center text-base text-ink-900 outline-none focus:border-primary-500"
+              className="w-full rounded-xl border border-ink-900/15 bg-surface px-4 py-3 text-center text-base text-ink-900 outline-none focus:border-primary-500"
               placeholder="6-digit code"
               inputMode="numeric"
               maxLength={6}

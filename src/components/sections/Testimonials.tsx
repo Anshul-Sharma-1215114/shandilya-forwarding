@@ -53,7 +53,7 @@ export default function Testimonials() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: direction * -40 }}
                 transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                className="relative rounded-[2rem] border border-ink-900/8 bg-white p-8 shadow-lg sm:p-10"
+                className="relative rounded-[2rem] border border-ink-900/8 bg-surface p-8 shadow-lg sm:p-10"
               >
                 <p className="text-balance text-lg leading-relaxed text-ink-700 sm:text-xl">
                   &ldquo;{testimonial.quote}&rdquo;
@@ -75,7 +75,7 @@ export default function Testimonials() {
             <button
               onClick={prev}
               aria-label="Previous testimonial"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-ink-900/10 text-ink-600 transition-colors hover:border-primary-600 hover:text-primary-700"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-ink-900/10 bg-surface text-ink-600 shadow-sm transition-all hover:border-primary-600 hover:text-primary-700 hover:shadow-md"
             >
               <ChevronLeft size={18} />
             </button>
@@ -100,7 +100,7 @@ export default function Testimonials() {
             <button
               onClick={next}
               aria-label="Next testimonial"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-ink-900/10 text-ink-600 transition-colors hover:border-primary-600 hover:text-primary-700"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-ink-900/10 bg-surface text-ink-600 shadow-sm transition-all hover:border-primary-600 hover:text-primary-700 hover:shadow-md"
             >
               <ChevronRight size={18} />
             </button>

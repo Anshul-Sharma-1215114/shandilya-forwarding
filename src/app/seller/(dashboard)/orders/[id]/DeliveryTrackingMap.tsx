@@ -19,14 +19,14 @@ const OSRM_URL = "https://router.project-osrm.org";
 // of wiring up marker-icon.png/marker-shadow.png as static assets.
 const partnerIcon = L.divIcon({
   className: "",
-  html: `<div style="width:16px;height:16px;border-radius:9999px;background:#167f4c;border:3px solid white;box-shadow:0 0 0 1px rgba(0,0,0,0.15)"></div>`,
+  html: `<div style="width:16px;height:16px;border-radius:9999px;background:#1b4f9c;border:3px solid white;box-shadow:0 0 0 1px rgba(0,0,0,0.15)"></div>`,
   iconSize: [16, 16],
   iconAnchor: [8, 8],
 });
 
 const destIcon = L.divIcon({
   className: "",
-  html: `<div style="width:16px;height:16px;border-radius:4px;background:#b3311f;border:3px solid white;box-shadow:0 0 0 1px rgba(0,0,0,0.15)"></div>`,
+  html: `<div style="width:16px;height:16px;border-radius:4px;background:#c81e34;border:3px solid white;box-shadow:0 0 0 1px rgba(0,0,0,0.15)"></div>`,
   iconSize: [16, 16],
   iconAnchor: [8, 8],
 });
@@ -144,10 +144,10 @@ export default function DeliveryTrackingMap({
         />
         <Marker position={[position.lat, position.lng]} icon={partnerIcon} />
         {hasDest && <Marker position={[destLat!, destLng!]} icon={destIcon} />}
-        {route && <Polyline positions={route} pathOptions={{ color: "#167f4c", weight: 4, opacity: 0.8 }} />}
+        {route && <Polyline positions={route} pathOptions={{ color: "#1b4f9c", weight: 4, opacity: 0.8 }} />}
         {hasDest ? <FitBounds points={boundsPoints} /> : <Recenter lat={position.lat} lng={position.lng} />}
       </MapContainer>
-      <div className="flex items-center justify-between border-t border-ink-900/8 bg-white px-3 py-1.5 text-xs text-ink-400">
+      <div className="flex items-center justify-between border-t border-ink-900/8 bg-surface px-3 py-1.5 text-xs text-ink-400">
         <span className="flex items-center gap-1">
           <span className="h-2 w-2 rounded-full bg-primary-600" /> Delivery partner
         </span>

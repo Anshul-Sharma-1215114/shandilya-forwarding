@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { Plus, Ticket, X } from "lucide-react";
 import type { Coupon, CouponType } from "@/lib/seller-types";
 import { createCoupon } from "./actions";
 
 const inputClass =
-  "w-full rounded-lg border border-ink-900/15 px-3 py-2 text-sm text-ink-900 outline-none focus:border-primary-500";
+  "w-full rounded-lg border border-ink-900/12 px-3 py-2 text-sm text-ink-900 outline-none transition-colors focus:border-primary-500";
 
 function formatValue(c: Coupon) {
   if (c.type === "percentage") return `${c.value}%`;
@@ -92,14 +93,15 @@ export default function CouponsTable({ coupons }: { coupons: Coupon[] }) {
       <div>
         <button
           onClick={() => setOpen((v) => !v)}
-          className="rounded-full bg-primary-600 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700"
+          className="flex items-center gap-1.5 rounded-full bg-primary-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-primary-600/25 transition-colors hover:bg-primary-700"
         >
-          {open ? "Cancel" : "+ New Coupon"}
+          {open ? <X className="h-4 w-4" strokeWidth={2.5} /> : <Plus className="h-4 w-4" strokeWidth={2.5} />}
+          {open ? "Cancel" : "New Coupon"}
         </button>
       </div>
 
       {open && (
-        <div className="rounded-2xl border border-ink-900/8 bg-white p-5">
+        <div className="rounded-2xl bg-surface p-5 card-elevated">
           <div className="grid gap-3 sm:grid-cols-2">
             <Field label="Code">
               <input
@@ -182,41 +184,48 @@ export default function CouponsTable({ coupons }: { coupons: Coupon[] }) {
             <button
               disabled={busy}
               onClick={() => void handleSubmit()}
-              className="rounded-full bg-primary-600 px-4 py-2 text-sm font-semibold text-white disabled:opacity-50"
+              className="rounded-full bg-primary-600 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-primary-600/25 transition-colors hover:bg-primary-700 disabled:opacity-50"
             >
               {busy ? "Creating..." : "Create Coupon"}
             </button>
           </div>
-          {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
+          {error && <p className="mt-2 text-sm font-medium text-accent-600">{error}</p>}
         </div>
       )}
 
-      <div className="overflow-x-auto rounded-2xl border border-ink-900/8 bg-white">
+      <div className="overflow-x-auto rounded-2xl bg-surface card-elevated">
         <table className="w-full text-left text-sm">
-          <thead className="border-b border-ink-900/8 text-xs uppercase text-ink-400">
+          <thead className="border-b border-ink-900/6 text-[11px] font-semibold uppercase tracking-wide text-ink-400">
             <tr>
-              <th className="px-4 py-3">Code</th>
-              <th className="px-4 py-3">Type</th>
-              <th className="px-4 py-3">Value</th>
-              <th className="px-4 py-3">Min Order</th>
-              <th className="px-4 py-3">Expires</th>
-              <th className="px-4 py-3">Status</th>
+              <th className="px-5 py-3.5">Code</th>
+              <th className="px-5 py-3.5">Type</th>
+              <th className="px-5 py-3.5">Value</th>
+              <th className="px-5 py-3.5">Min Order</th>
+              <th className="px-5 py-3.5">Expires</th>
+              <th className="px-5 py-3.5">Status</th>
             </tr>
           </thead>
           <tbody>
             {coupons.map((c) => (
-              <tr key={c.id} className="border-b border-ink-900/5 last:border-0">
-                <td className="px-4 py-3 font-semibold text-ink-900">{c.code}</td>
-                <td className="px-4 py-3 capitalize text-ink-600">{c.type.replace("_", " ")}</td>
-                <td className="px-4 py-3 text-ink-900">{formatValue(c)}</td>
-                <td className="px-4 py-3 text-ink-600">₹{(c.minOrderInPaise / 100).toFixed(2)}</td>
-                <td className="px-4 py-3 text-ink-500">
+              <tr key={c.id} className="border-b border-ink-900/5 transition-colors last:border-0 hover:bg-cream-dim/70">
+                <td className="px-5 py-3.5">
+                  <div className="flex items-center gap-2.5">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-secondary-50 text-secondary-600">
+                      <Ticket className="h-[15px] w-[15px]" strokeWidth={2.25} />
+                    </div>
+                    <span className="font-mono text-sm font-semibold text-ink-900">{c.code}</span>
+                  </div>
+                </td>
+                <td className="px-5 py-3.5 capitalize text-ink-600">{c.type.replace("_", " ")}</td>
+                <td className="px-5 py-3.5 font-medium text-ink-900">{formatValue(c)}</td>
+                <td className="px-5 py-3.5 text-ink-600">₹{(c.minOrderInPaise / 100).toFixed(2)}</td>
+                <td className="px-5 py-3.5 text-ink-500">
                   {c.expiresAt ? new Date(c.expiresAt).toLocaleDateString("en-IN") : "Never"}
                 </td>
-                <td className="px-4 py-3">
+                <td className="px-5 py-3.5">
                   <span
-                    className={`rounded-full px-2.5 py-1 text-xs font-bold uppercase ${
-                      c.active ? "bg-primary-50 text-primary-700" : "bg-ink-100 text-ink-500"
+                    className={`rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide ${
+                      c.active ? "bg-primary-100 text-primary-700" : "bg-ink-100 text-ink-500"
                     }`}
                   >
                     {c.active ? "Active" : "Inactive"}
@@ -226,7 +235,7 @@ export default function CouponsTable({ coupons }: { coupons: Coupon[] }) {
             ))}
             {coupons.length === 0 && (
               <tr>
-                <td colSpan={6} className="px-4 py-10 text-center text-ink-400">
+                <td colSpan={6} className="px-4 py-14 text-center text-ink-400">
                   No coupons yet.
                 </td>
               </tr>
