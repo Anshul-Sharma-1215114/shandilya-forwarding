@@ -16,6 +16,7 @@ const BRAND_BADGE: Record<BrandName, string> = {
   "Zealup Water": "bg-primary-50 text-primary-700 ring-primary-200",
   "Parle Agro": "bg-secondary-50 text-secondary-700 ring-secondary-200",
   "Balaji Wafers": "bg-accent-50 text-accent-700 ring-accent-200",
+  "Ice Cube": "bg-primary-50 text-primary-700 ring-primary-200",
 };
 
 function inquiryLink(productName: string) {

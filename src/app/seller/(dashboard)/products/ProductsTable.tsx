@@ -11,7 +11,7 @@ function formatPrice(paise: number) {
   return `₹${(paise / 100).toFixed(2)}`;
 }
 
-const BRANDS: Brand[] = ["ZEALUP_WATER", "PARLE_AGRO", "BALAJI_WAFERS"];
+const BRANDS: Brand[] = ["ZEALUP_WATER", "PARLE_AGRO", "BALAJI_WAFERS", "ICE_CUBE"];
 const inputClass =
   "w-full rounded-lg border border-ink-900/12 px-3 py-2 text-sm text-ink-900 outline-none transition-colors focus:border-primary-500";
 
@@ -24,6 +24,7 @@ type FormState = {
   imageUrl: string;
   price: string;
   unit: string;
+  packSize: string;
 };
 
 const EMPTY_FORM: FormState = {
@@ -35,6 +36,7 @@ const EMPTY_FORM: FormState = {
   imageUrl: "",
   price: "",
   unit: "",
+  packSize: "1",
 };
 
 function productToForm(p: Product): FormState {
@@ -47,6 +49,7 @@ function productToForm(p: Product): FormState {
     imageUrl: p.imageUrl ?? "",
     price: (p.priceInPaise / 100).toString(),
     unit: p.unit,
+    packSize: p.packSize.toString(),
   };
 }
 
@@ -73,15 +76,18 @@ export default function ProductsTable({ products }: { products: Product[] }) {
   async function handleSubmit() {
     setError(null);
     const priceInPaise = Math.round(parseFloat(form.price) * 100);
+    const packSize = Math.round(parseFloat(form.packSize));
     if (
       !form.slug ||
       !form.name ||
       !form.description ||
       !form.category ||
       !form.unit ||
-      Number.isNaN(priceInPaise)
+      Number.isNaN(priceInPaise) ||
+      !Number.isInteger(packSize) ||
+      packSize < 1
     ) {
-      setError("Fill in all fields with a valid price.");
+      setError("Fill in all fields with a valid price and pack size (whole number, at least 1).");
       return;
     }
     setBusy(true);
@@ -94,6 +100,7 @@ export default function ProductsTable({ products }: { products: Product[] }) {
       imageUrl: form.imageUrl || undefined,
       priceInPaise,
       unit: form.unit,
+      packSize,
     };
     const result =
       editingId === "new" ? await createProduct(input) : await updateProduct(editingId!, input);
@@ -201,6 +208,15 @@ export default function ProductsTable({ products }: { products: Product[] }) {
                 onChange={(e) => setForm({ ...form, unit: e.target.value })}
               />
             </Field>
+            <Field label="Pack / Case Size">
+              <input
+                className={inputClass}
+                placeholder="e.g. 30"
+                value={form.packSize}
+                onChange={(e) => setForm({ ...form, packSize: e.target.value })}
+                inputMode="numeric"
+              />
+            </Field>
             <Field label="Image URL" className="sm:col-span-2">
               <input
                 className={inputClass}
@@ -269,7 +285,13 @@ export default function ProductsTable({ products }: { products: Product[] }) {
                   </div>
                 </td>
                 <td className="px-5 py-3.5 text-ink-600">{BRAND_LABELS[p.brand]}</td>
-                <td className="px-5 py-3.5 font-semibold tabular-nums text-ink-900">{formatPrice(p.priceInPaise)}</td>
+                <td className="px-5 py-3.5">
+                  <p className="font-semibold tabular-nums text-ink-900">{formatPrice(p.priceInPaise)}</p>
+                  <p className="text-xs text-ink-400">
+                    {p.unit}
+                    {p.packSize > 1 ? ` · case of ${p.packSize}` : ""}
+                  </p>
+                </td>
                 <td className="px-5 py-3.5">
                   <p className="mb-1.5 font-semibold tabular-nums text-ink-900">{p.stockQty}</p>
                   <div className="flex items-center gap-1">

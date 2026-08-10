@@ -122,7 +122,7 @@ export default function DeliveryTrackingMap({
 
   if (!position) {
     return (
-      <p className="rounded-xl border border-ink-900/8 bg-cream-dim px-4 py-6 text-center text-sm text-ink-500">
+      <p className="rounded-2xl bg-cream-dim px-4 py-6 text-center text-sm text-ink-500 card-elevated-sm">
         Waiting for the delivery partner&apos;s location...
       </p>
     );
@@ -131,7 +131,7 @@ export default function DeliveryTrackingMap({
   const boundsPoints: [number, number][] = hasDest ? [[position.lat, position.lng], [destLat!, destLng!]] : [];
 
   return (
-    <div className="overflow-hidden rounded-xl border border-ink-900/8">
+    <div className="overflow-hidden rounded-2xl card-elevated-sm">
       <MapContainer
         center={[position.lat, position.lng]}
         zoom={15}

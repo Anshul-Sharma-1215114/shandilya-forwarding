@@ -12,6 +12,7 @@ export type ProductFormInput = {
   imageUrl?: string;
   priceInPaise: number;
   unit: string;
+  packSize: number;
 };
 
 export async function createProduct(input: ProductFormInput) {

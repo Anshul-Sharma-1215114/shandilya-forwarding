@@ -92,12 +92,13 @@ export type Order = {
   timeline?: OrderTimelineEvent[];
 };
 
-export type Brand = "ZEALUP_WATER" | "PARLE_AGRO" | "BALAJI_WAFERS";
+export type Brand = "ZEALUP_WATER" | "PARLE_AGRO" | "BALAJI_WAFERS" | "ICE_CUBE";
 
 export const BRAND_LABELS: Record<Brand, string> = {
   ZEALUP_WATER: "Zealup Water",
   PARLE_AGRO: "Parle Agro",
   BALAJI_WAFERS: "Balaji Wafers",
+  ICE_CUBE: "Ice Cube",
 };
 
 export type Product = {
@@ -110,6 +111,7 @@ export type Product = {
   imageUrl: string | null;
   priceInPaise: number;
   unit: string;
+  packSize: number;
   stockQty: number;
   active: boolean;
   inStock: boolean;
