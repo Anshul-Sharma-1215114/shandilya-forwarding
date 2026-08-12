@@ -1,4 +1,4 @@
-export type BrandName = "Zealup Water" | "Parle Agro" | "Balaji Wafers" | "Ice Cube";
+export type BrandName = "Zealup Water" | "Parle Agro" | "Balaji Wafers" | "Ice Cube" | "Campa";
 
 export type Product = {
   slug: string;
@@ -119,6 +119,18 @@ export const PRODUCTS: Product[] = [
   { slug: "ice-cube-1kg", name: "Ice Cube 1kg Bag", description: "Packaged ice cubes, supplied fresh for retail, HORECA and event use.", brand: "Ice Cube", category: "Packaged Ice", image: "", accent: "accent" },
   { slug: "ice-cube-5kg", name: "Ice Cube 5kg Bag", description: "Packaged ice cubes, supplied fresh for retail, HORECA and event use.", brand: "Ice Cube", category: "Packaged Ice", image: "", accent: "primary" },
 
+  // ---------------- Campa ----------------
+  { slug: "campa-cola-250ml", name: "Campa Cola 250ml", description: "The classic Indian cola, relaunched - bold cola flavour at a value price.", brand: "Campa", category: "Soft Drink", image: "/images/products/campa-cola-bottle.png", accent: "secondary" },
+  { slug: "campa-cola-can-250ml", name: "Campa Cola Can 250ml", description: "The classic Indian cola, relaunched - bold cola flavour at a value price.", brand: "Campa", category: "Soft Drink", image: "/images/products/campa-cola-can.jpg", accent: "primary" },
+  { slug: "campa-lemon-250ml", name: "Campa Lemon 250ml", description: "A zesty lemon-flavoured sparkling soft drink from Campa.", brand: "Campa", category: "Soft Drink", image: "/images/products/campa-lemon-bottle.png", accent: "accent" },
+  { slug: "campa-club-soda-250ml", name: "Campa Club Soda 250ml", description: "Plain carbonated soda water from Campa - a clean mixer or on its own.", brand: "Campa", category: "Soda", image: "/images/products/campa-club-soda.jpg", accent: "primary" },
+  { slug: "campa-sure-water-1l", name: "Campa Sure Water with Minerals 1L", description: "Packaged mineral drinking water from Campa's Sure range.", brand: "Campa", category: "Packaged Water", image: "/images/products/campa-sure-water.jpg", accent: "secondary" },
+  { slug: "campa-energy-drink-250ml", name: "Campa Energy Drink 250ml", description: "A fizzy energy drink from Campa for a quick pick-me-up.", brand: "Campa", category: "Energy Drink", image: "/images/products/campa-energy-drink.png", accent: "accent" },
+  { slug: "campa-runner-energy-strawberry-250ml", name: "Campa Runner Energy - Strawberry", description: "Strawberry-flavoured energy drink from Campa's Runner range.", brand: "Campa", category: "Energy Drink", image: "/images/products/campa-runner-energy-strawberry.jpg", accent: "primary" },
+  { slug: "campa-power-up-can-250ml", name: "Campa Power Up Can 250ml", description: "A canned energy drink from Campa's Power Up range.", brand: "Campa", category: "Energy Drink", image: "/images/products/campa-power-up-can.jpg", accent: "secondary" },
+  { slug: "campa-energy-drink-gold-boost-can-250ml", name: "Campa Energy Drink Gold Boost Can 250ml", description: "A canned energy drink from Campa's Gold Boost range.", brand: "Campa", category: "Energy Drink", image: "/images/products/campa-energy-drink-gold-boost-can.jpg", accent: "accent" },
+  { slug: "campa-purple-energy-can-250ml", name: "Campa Purple Energy Can 250ml", description: "A canned energy drink from Campa's Purple Energy range.", brand: "Campa", category: "Energy Drink", image: "/images/products/campa-purple-energy-can.jpg", accent: "primary" },
+
 ];
 
-export const BRAND_FILTERS: BrandName[] = ["Zealup Water", "Parle Agro", "Balaji Wafers", "Ice Cube"];
+export const BRAND_FILTERS: BrandName[] = ["Zealup Water", "Parle Agro", "Balaji Wafers", "Ice Cube", "Campa"];
