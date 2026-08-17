@@ -115,9 +115,9 @@ export const PRODUCTS: Product[] = [
   { slug: "balaji-healthy-bites-jeera-khakhra", name: "Healthy Bites Jeera Khakhra", description: "A light, roasted khakhra from Balaji's Healthy Bites range - a wholesome snacking option.", brand: "Balaji Wafers", category: "Khakhra", image: "/images/products/balaji-healthy-bites-jeera-khakhra.png", accent: "primary" },
 
   // ---------------- Ice Cube ----------------
-  { slug: "ice-cube-0-5kg", name: "Ice Cube 0.5kg Bag", description: "Packaged ice cubes, supplied fresh for retail, HORECA and event use.", brand: "Ice Cube", category: "Packaged Ice", image: "", accent: "secondary" },
-  { slug: "ice-cube-1kg", name: "Ice Cube 1kg Bag", description: "Packaged ice cubes, supplied fresh for retail, HORECA and event use.", brand: "Ice Cube", category: "Packaged Ice", image: "", accent: "accent" },
-  { slug: "ice-cube-5kg", name: "Ice Cube 5kg Bag", description: "Packaged ice cubes, supplied fresh for retail, HORECA and event use.", brand: "Ice Cube", category: "Packaged Ice", image: "", accent: "primary" },
+  { slug: "ice-cube-0-5kg", name: "Diamond Ice Cubes 0.5kg Bag", description: "Packaged ice cubes from Diamond Ice Cubes, supplied fresh for retail, HORECA and event use.", brand: "Ice Cube", category: "Packaged Ice", image: "/images/products/diamond-ice-cubes-0-5kg.png", accent: "secondary" },
+  { slug: "ice-cube-1kg", name: "Diamond Ice Cubes 1kg Bag", description: "Packaged ice cubes from Diamond Ice Cubes, supplied fresh for retail, HORECA and event use.", brand: "Ice Cube", category: "Packaged Ice", image: "/images/products/diamond-ice-cubes-1kg.png", accent: "accent" },
+  { slug: "ice-cube-5kg", name: "Diamond Ice Cubes 5kg Bag", description: "Packaged ice cubes from Diamond Ice Cubes, supplied fresh for retail, HORECA and event use.", brand: "Ice Cube", category: "Packaged Ice", image: "/images/products/diamond-ice-cubes-5kg.png", accent: "primary" },
 
   // ---------------- Campa ----------------
   { slug: "campa-cola-250ml", name: "Campa Cola 250ml", description: "The classic Indian cola, relaunched - bold cola flavour at a value price.", brand: "Campa", category: "Soft Drink", image: "/images/products/campa-cola-bottle.png", accent: "secondary" },
