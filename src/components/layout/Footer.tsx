@@ -110,7 +110,17 @@ export default function Footer() {
       <div className="border-t border-white/10 py-6">
         <Container className="flex flex-col items-center justify-between gap-3 text-xs text-ink-400 sm:flex-row">
           <p>© {new Date().getFullYear()} {COMPANY.name}. All rights reserved.</p>
-          <p>Authorized Distributor — Zealup Water · Parle Agro · Balaji Wafers</p>
+          <div className="flex items-center gap-4">
+            <Link href="/privacy" className="transition-colors duration-300 hover:text-primary-300">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="transition-colors duration-300 hover:text-primary-300">
+              Terms of Service
+            </Link>
+            <Link href="/refund-policy" className="transition-colors duration-300 hover:text-primary-300">
+              Refund Policy
+            </Link>
+          </div>
         </Container>
       </div>
     </footer>
