@@ -1,4 +1,4 @@
-export type BrandName = "Campa" | "Parle Agro" | "Balaji Wafers" | "In-House" | "Zealup Water";
+export type BrandName = "Campa" | "Parle Agro" | "Balaji Wafers" | "Zealup Water" | "In-House";
 
 export type Product = {
   slug: string;
@@ -125,14 +125,6 @@ export const PRODUCTS: Product[] = [
   { slug: "balaji-healthy-bites-methi-khakhra", name: "Healthy Bites Methi Khakhra", description: "A light, roasted khakhra from Balaji's Healthy Bites range - a wholesome snacking option.", brand: "Balaji Wafers", category: "Khakhra", image: "/images/products/balaji-healthy-bites-methi-khakhra.png", accent: "accent" },
   { slug: "balaji-healthy-bites-jeera-khakhra", name: "Healthy Bites Jeera Khakhra", description: "A light, roasted khakhra from Balaji's Healthy Bites range - a wholesome snacking option.", brand: "Balaji Wafers", category: "Khakhra", image: "/images/products/balaji-healthy-bites-jeera-khakhra.png", accent: "primary" },
 
-  // ---------------- In-House (Shandilya's own products, not a distributed brand) ----------------
-  { slug: "ice-cube-0-5kg", name: "Diamond Ice Cubes 0.5kg Bag", description: "Packaged ice cubes from Diamond Ice Cubes, supplied fresh for retail, HORECA and event use.", brand: "In-House", category: "Packaged Ice", image: "/images/products/diamond-ice-cubes-0-5kg.png", accent: "secondary" },
-  { slug: "ice-cube-1kg", name: "Diamond Ice Cubes 1kg Bag", description: "Packaged ice cubes from Diamond Ice Cubes, supplied fresh for retail, HORECA and event use.", brand: "In-House", category: "Packaged Ice", image: "/images/products/diamond-ice-cubes-1kg.png", accent: "accent" },
-  { slug: "ice-cube-5kg", name: "Diamond Ice Cubes 5kg Bag", description: "Packaged ice cubes from Diamond Ice Cubes, supplied fresh for retail, HORECA and event use.", brand: "In-House", category: "Packaged Ice", image: "/images/products/diamond-ice-cubes-5kg.png", accent: "primary" },
-  // No photo or exact spec supplied yet for this one - name/size/price are
-  // a reasonable placeholder pending real details from the seller.
-  { slug: "in-house-water-jar-20l", name: "Shandilya Water Jar 20L", description: "A returnable 20L water jar supplied directly by Shandilya Forwarding, for retail, office and institutional use.", brand: "In-House", category: "Packaged Water", image: "", accent: "primary" },
-
   // ---------------- Zealup Water ----------------
   { slug: "zealup-mineral-water-250ml", name: "Zealup Mineral Water 250ml", description: "RO-purified, mineral-enriched packaged drinking water from Zealup, supplied in bulk for retail and HORECA.", brand: "Zealup Water", category: "Packaged Drinking Water", image: "/images/products/OIP.webp", accent: "primary" },
   { slug: "zealup-mineral-water-500ml", name: "Zealup Mineral Water 500ml", description: "RO-purified, mineral-enriched packaged drinking water from Zealup, supplied in bulk for retail and HORECA.", brand: "Zealup Water", category: "Packaged Drinking Water", image: "/images/products/WhatsApp_Image_2026-07-24_at_8.52.20_PM_1.jpeg", accent: "secondary" },
@@ -142,6 +134,14 @@ export const PRODUCTS: Product[] = [
   { slug: "zealup-20l-jar", name: "Zealup Mineral Water 20L Jar", description: "RO-purified, mineral-enriched packaged drinking water from Zealup, supplied in bulk for retail and HORECA.", brand: "Zealup Water", category: "Packaged Drinking Water", image: "/images/products/ChatGPT_Image_Jul_24_2026_08_57_32_PM.png", accent: "accent" },
   { slug: "zealup-jeerafizz-160ml", name: "Zealup Jeerafizz 160ml", description: "A bold jeera-spiced fizzy soda from Zealup - a refreshing masala twist for those who love a kick in their drink.", brand: "Zealup Water", category: "Flavoured Soda", image: "/images/products/zeepup250ml.png", accent: "primary" },
   { slug: "zealup-jeerafizz-250ml", name: "Zealup Jeerafizz 250ml", description: "A bold jeera-spiced fizzy soda from Zealup - a refreshing masala twist for those who love a kick in their drink.", brand: "Zealup Water", category: "Flavoured Soda", image: "/images/products/zeepup250ml.png", accent: "secondary" },
+
+  // ---------------- In-House (Shandilya's own products, not a distributed brand) ----------------
+  { slug: "ice-cube-0-5kg", name: "Diamond Ice Cubes 0.5kg Bag", description: "Packaged ice cubes from Diamond Ice Cubes, supplied fresh for retail, HORECA and event use.", brand: "In-House", category: "Packaged Ice", image: "/images/products/diamond-ice-cubes-0-5kg.png", accent: "secondary" },
+  { slug: "ice-cube-1kg", name: "Diamond Ice Cubes 1kg Bag", description: "Packaged ice cubes from Diamond Ice Cubes, supplied fresh for retail, HORECA and event use.", brand: "In-House", category: "Packaged Ice", image: "/images/products/diamond-ice-cubes-1kg.png", accent: "accent" },
+  { slug: "ice-cube-5kg", name: "Diamond Ice Cubes 5kg Bag", description: "Packaged ice cubes from Diamond Ice Cubes, supplied fresh for retail, HORECA and event use.", brand: "In-House", category: "Packaged Ice", image: "/images/products/diamond-ice-cubes-5kg.png", accent: "primary" },
+  // No exact size/price spec supplied yet for this one - price is a
+  // reasonable placeholder pending real details from the seller.
+  { slug: "in-house-water-jar-20l", name: "RO Water Jar 20L", description: "A returnable 20L water jar supplied directly by Shandilya Forwarding, for retail, office and institutional use.", brand: "In-House", category: "Packaged Water", image: "/images/products/ro-water.jpeg", accent: "primary" },
 ];
 
-export const BRAND_FILTERS: BrandName[] = ["Campa", "Parle Agro", "Balaji Wafers", "In-House", "Zealup Water"];
+export const BRAND_FILTERS: BrandName[] = ["Campa", "Parle Agro", "Balaji Wafers", "Zealup Water", "In-House"];

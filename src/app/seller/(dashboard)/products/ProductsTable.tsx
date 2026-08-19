@@ -11,7 +11,7 @@ function formatPrice(paise: number) {
   return `₹${(paise / 100).toFixed(2)}`;
 }
 
-const BRANDS: Brand[] = ["CAMPA", "PARLE_AGRO", "BALAJI_WAFERS", "ICE_CUBE", "ZEALUP_WATER"];
+const BRANDS: Brand[] = ["CAMPA", "PARLE_AGRO", "BALAJI_WAFERS", "ZEALUP_WATER", "ICE_CUBE"];
 const inputClass =
   "w-full rounded-lg border border-ink-900/12 px-3 py-2 text-sm text-ink-900 outline-none transition-colors focus:border-primary-500";
 

@@ -98,8 +98,8 @@ export const BRAND_LABELS: Record<Brand, string> = {
   CAMPA: "Campa",
   PARLE_AGRO: "Parle Agro",
   BALAJI_WAFERS: "Balaji Wafers",
-  ICE_CUBE: "In-House",
   ZEALUP_WATER: "Zealup Water",
+  ICE_CUBE: "In-House",
 };
 
 export type Product = {

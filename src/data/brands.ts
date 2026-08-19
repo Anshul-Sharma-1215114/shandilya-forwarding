@@ -67,6 +67,23 @@ export const BRANDS: Brand[] = [
     theme: "accent",
   },
   {
+    slug: "zealup-water",
+    name: "Zealup Water",
+    tagline: "Premium Packaged Drinking Water",
+    description:
+      "Zealup is a premium packaged drinking water brand, RO-purified and enriched with balanced minerals for instant hydration. Available across 20L jars, 1L and 500ml bottles, Zealup is trusted by households, offices, hotels and institutions for consistent purity and taste.",
+    points: [
+      "BIS Certified & RO Purified",
+      "Balanced Mineral Content",
+      "Available in Multiple Pack Sizes",
+      "Trusted for Home, Office & Institutional Use",
+    ],
+    image: IMAGES.zealupBrand,
+    imageFit: "contain",
+    logo: "/images/logo/zealup-logo.png",
+    theme: "primary",
+  },
+  {
     // No catchy third-party brand name for this one on purpose - these are
     // Shandilya's own supplied products (packaged ice, water jars), not a
     // distributed FMCG brand, so the card intentionally reads more plainly
@@ -85,22 +102,5 @@ export const BRANDS: Brand[] = [
     image: "/images/products/diamond-ice-cubes-5kg.png",
     imageFit: "contain",
     theme: "inhouse",
-  },
-  {
-    slug: "zealup-water",
-    name: "Zealup Water",
-    tagline: "Premium Packaged Drinking Water",
-    description:
-      "Zealup is a premium packaged drinking water brand, RO-purified and enriched with balanced minerals for instant hydration. Available across 20L jars, 1L and 500ml bottles, Zealup is trusted by households, offices, hotels and institutions for consistent purity and taste.",
-    points: [
-      "BIS Certified & RO Purified",
-      "Balanced Mineral Content",
-      "Available in Multiple Pack Sizes",
-      "Trusted for Home, Office & Institutional Use",
-    ],
-    image: IMAGES.zealupBrand,
-    imageFit: "contain",
-    logo: "/images/logo/zealup-logo.png",
-    theme: "primary",
   },
 ];
