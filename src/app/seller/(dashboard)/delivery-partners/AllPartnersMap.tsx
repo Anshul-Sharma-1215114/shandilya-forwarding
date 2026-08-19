@@ -73,6 +73,7 @@ export default function AllPartnersMap({ initialPartners }: { initialPartners: D
     (p): p is DeliveryPartner & { lastKnownLat: number; lastKnownLng: number } =>
       p.lastKnownLat != null && p.lastKnownLng != null
   );
+  const unlocated = partners.filter((p) => p.lastKnownLat == null || p.lastKnownLng == null);
   const points: [number, number][] = located.map((p) => [p.lastKnownLat, p.lastKnownLng]);
 
   if (located.length === 0) {
@@ -82,7 +83,8 @@ export default function AllPartnersMap({ initialPartners }: { initialPartners: D
           No delivery partner has shared a location yet.
         </p>
         <p className="text-xs text-ink-400">
-          A pin appears here as soon as a partner&apos;s app sends its first location ping.
+          A pin appears here once a partner turns Available in their app - not just while they&apos;re
+          mid-delivery.
         </p>
       </div>
     );
@@ -90,6 +92,13 @@ export default function AllPartnersMap({ initialPartners }: { initialPartners: D
 
   return (
     <div className="overflow-hidden rounded-2xl card-elevated">
+      {unlocated.length > 0 && (
+        <div className="border-b border-ink-900/8 bg-secondary-50 px-4 py-2 text-xs text-secondary-700">
+          {unlocated.length} partner{unlocated.length === 1 ? "" : "s"} not shown here yet -{" "}
+          {unlocated.map((p) => p.name).join(", ")} {unlocated.length === 1 ? "hasn't" : "haven't"} shared a
+          location (they need to open the app and go Available at least once).
+        </div>
+      )}
       <MapContainer center={points[0]} zoom={12} scrollWheelZoom style={{ height: 380, width: "100%" }}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
