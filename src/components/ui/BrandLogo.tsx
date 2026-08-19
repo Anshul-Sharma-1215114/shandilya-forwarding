@@ -19,7 +19,12 @@ export default function BrandLogo({
 
   if (!src || broken) {
     return (
-      <span className={cn("font-display text-sm font-bold tracking-tight text-ink-800", className)}>
+      <span
+        className={cn(
+          "flex items-center font-display text-sm font-bold tracking-tight text-ink-900",
+          className
+        )}
+      >
         {name}
       </span>
     );

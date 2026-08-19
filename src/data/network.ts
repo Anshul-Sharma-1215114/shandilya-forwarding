@@ -18,7 +18,7 @@ export const PROCESS_STEPS = [
   {
     step: "01",
     title: "Manufacturer",
-    description: "Genuine products sourced directly from Zealup Water, Parle Agro and Balaji Wafers.",
+    description: "Genuine products sourced directly from Zealup Water, Parle Agro, Balaji Wafers and Campa.",
     icon: "Factory" as const,
   },
   {

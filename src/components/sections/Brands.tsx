@@ -27,6 +27,15 @@ const THEME = {
     check: "bg-accent-600 text-white",
     glow: "bg-accent-200/50",
   },
+  // Campa's own real-world brand colour (the Cola bottle's label purple) -
+  // primary/secondary/accent are each already spoken for by the other
+  // three brands, so this uses Tailwind's default violet scale directly
+  // rather than introducing a new site-wide design token for one section.
+  campa: {
+    badge: "bg-violet-50 text-violet-700 ring-violet-200",
+    check: "bg-violet-600 text-white",
+    glow: "bg-violet-200/50",
+  },
 };
 
 export default function Brands() {
@@ -35,7 +44,7 @@ export default function Brands() {
       <Container>
         <SectionHeading
           eyebrow="Our Brands"
-          title="Three Trusted Names, One Reliable Distributor"
+          title="Four Trusted Names, One Reliable Distributor"
           description="We are proud to be the authorized distribution partner for these leading FMCG brands, bringing genuine, high-quality products to businesses across our network."
           className="mb-16"
         />
@@ -49,7 +58,7 @@ export default function Brands() {
               <Reveal key={brand.slug} delay={0.05}>
                 <div
                   className={cn(
-                    "grid items-center gap-10 overflow-hidden rounded-[2rem] border border-ink-900/8 bg-white/70 p-6 shadow-sm sm:p-8 lg:grid-cols-2 lg:gap-14 lg:p-10",
+                    "grid items-center gap-10 overflow-hidden rounded-[2rem] border border-ink-900/8 bg-surface/70 p-6 shadow-sm sm:p-8 lg:grid-cols-2 lg:gap-14 lg:p-10",
                     reversed && "lg:[&>*:first-child]:order-2"
                   )}
                 >

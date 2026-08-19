@@ -37,7 +37,7 @@ export default function Contact() {
               <div className="rounded-[1.75rem] bg-gradient-to-br from-primary-700 to-primary-900 p-7 text-white shadow-lg">
                 <p className="font-display text-lg font-bold">{COMPANY.name}</p>
                 <p className="mt-1 text-sm text-primary-100">
-                  Authorized Distributor - Zealup Water, Parle Agro &amp; Balaji Wafers
+                  Authorized Distributor - Zealup Water, Parle Agro, Balaji Wafers &amp; Campa
                 </p>
 
                 <div className="mt-7 flex flex-col gap-4">

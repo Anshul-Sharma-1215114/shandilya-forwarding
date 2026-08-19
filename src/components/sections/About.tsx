@@ -10,7 +10,7 @@ import { StaggerGroup, StaggerItem } from "@/components/ui/StaggerGroup";
 import { IMAGES } from "@/lib/images";
 
 const ABOUT_POINTS = [
-  { icon: BadgeCheck, title: "Authorized Distributor", desc: "Officially appointed partner for Zealup Water, Parle Agro & Balaji Wafers." },
+  { icon: BadgeCheck, title: "Authorized Distributor", desc: "Officially appointed partner for Zealup Water, Parle Agro, Balaji Wafers & Campa." },
   { icon: Link2, title: "Reliable Distribution", desc: "A dependable network built on consistency and trust." },
   { icon: Warehouse, title: "Strong Supply Chain", desc: "Well-managed warehousing and logistics infrastructure." },
   { icon: Clock, title: "Timely Delivery", desc: "Scheduled dispatches that keep your shelves stocked." },
@@ -70,7 +70,7 @@ export default function About() {
             <StaggerGroup className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {ABOUT_POINTS.map(({ icon: Icon, title, desc }) => (
                 <StaggerItem key={title}>
-                  <div className="group flex h-full flex-col gap-3 rounded-2xl border border-ink-900/8 bg-white/70 p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary-200 hover:shadow-lg">
+                  <div className="group flex h-full flex-col gap-3 rounded-2xl border border-ink-900/8 bg-surface/70 p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary-200 hover:shadow-lg">
                     <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary-50 text-primary-700 transition-colors group-hover:bg-primary-600 group-hover:text-white">
                       <Icon size={18} />
                     </span>

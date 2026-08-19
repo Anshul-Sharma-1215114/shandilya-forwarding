@@ -14,7 +14,7 @@ const VARIANT_CLASSES: Record<Variant, string> = {
   secondary:
     "bg-secondary-500 text-white shadow-[0_10px_30px_-10px_rgba(250,124,20,0.55)] hover:bg-secondary-600",
   outline:
-    "border-2 border-ink-900/15 text-ink-900 hover:border-primary-600 hover:text-primary-700 bg-white/60 backdrop-blur",
+    "border-2 border-ink-900/15 text-ink-900 hover:border-primary-600 hover:text-primary-700 bg-surface/60 backdrop-blur",
   ghost: "text-ink-800 hover:text-primary-700",
 };
 

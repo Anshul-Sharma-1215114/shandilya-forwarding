@@ -1,7 +1,7 @@
 import { IMAGES } from "@/lib/images";
 
 export type Brand = {
-  slug: "zealup-water" | "parle-agro" | "balaji-wafers";
+  slug: "zealup-water" | "parle-agro" | "balaji-wafers" | "campa";
   name: string;
   tagline: string;
   description: string;
@@ -9,7 +9,7 @@ export type Brand = {
   image: string;
   imageFit?: "cover" | "contain";
   logo?: string;
-  theme: "primary" | "secondary" | "accent";
+  theme: "primary" | "secondary" | "accent" | "campa";
 };
 
 export const BRANDS: Brand[] = [
@@ -62,5 +62,25 @@ export const BRANDS: Brand[] = [
     imageFit: "contain",
     logo: "/images/logo/balaji-logo.png",
     theme: "accent",
+  },
+  {
+    slug: "campa",
+    name: "Campa",
+    tagline: "India's Iconic Cola & Energy Drinks, Reimagined",
+    description:
+      "Campa is India's original cola brand, relaunched with a modern range spanning Cola, Lemon and Club Soda soft drinks alongside a full energy drinks line-up - Gold Boost, Berry Kick, Power Up, Neon Boost, Orange Boost and Purple Energy - plus Campa Sure packaged drinking water. Backed by aggressive nationwide distribution, Campa is fast becoming a value-for-money favourite on retail shelves.",
+    points: [
+      "India's Original, Nationally Recognised Cola",
+      "Full Soft Drink, Energy Drink & Water Range",
+      "Strong Value-for-Money Positioning",
+      "Rapidly Growing Retail Demand",
+    ],
+    // No standalone Campa wordmark logo on hand yet (campa-logo.png is
+    // specifically the "Campa Sure" sub-brand mark, not the umbrella
+    // brand) - omitted rather than shown for the wrong product line;
+    // BrandLogo falls back to styled text, same as it already does for
+    // the other three brands above (their logo files don't exist either).
+    image: "/images/products/campa-brand-banner.jpg",
+    theme: "campa",
   },
 ];

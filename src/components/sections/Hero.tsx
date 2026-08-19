@@ -37,7 +37,7 @@ export default function Hero() {
           {/* Left: copy */}
           <div>
             <Reveal>
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-primary-700 shadow-sm ring-1 ring-primary-200/70 backdrop-blur">
+              <span className="inline-flex items-center gap-2 rounded-full bg-surface/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-primary-700 shadow-sm ring-1 ring-primary-200/70 backdrop-blur">
                 <BadgeCheck size={15} />
                 Authorized Distribution Partner
               </span>
@@ -49,8 +49,9 @@ export default function Hero() {
                 <span className="relative inline-block text-primary-700">
                   Zealup Water,
                 </span>{" "}
-                <span className="relative inline-block text-secondary-600">Parle Agro</span>{" "}
-                &amp; <span className="relative inline-block text-accent-600">Balaji Wafers</span>
+                <span className="relative inline-block text-secondary-600">Parle Agro,</span>{" "}
+                <span className="relative inline-block text-accent-600">Balaji Wafers</span>{" "}
+                &amp; <span className="relative inline-block text-violet-600">Campa</span>
               </h2>
             </Reveal>
 
@@ -78,7 +79,7 @@ export default function Hero() {
                 {[
                   { icon: PackageCheck, label: "100% Genuine Products" },
                   { icon: Truck, label: "Reliable, On-Time Delivery" },
-                  { icon: BadgeCheck, label: "3 Trusted FMCG Brands" },
+                  { icon: BadgeCheck, label: "4 Trusted FMCG Brands" },
                 ].map(({ icon: Icon, label }) => (
                   <div key={label} className="flex items-center gap-2.5">
                     <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-50 text-primary-600 ring-1 ring-primary-200/70">
@@ -115,7 +116,7 @@ export default function Hero() {
               initial={{ opacity: 0, x: -20, y: 20 }}
               animate={{ opacity: 1, x: 0, y: 0 }}
               transition={{ delay: 0.5, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute -left-6 top-8 w-44 rounded-2xl bg-white/95 p-4 shadow-xl ring-1 ring-black/5 backdrop-blur animate-float sm:-left-10"
+              className="absolute -left-6 top-8 w-44 rounded-2xl bg-surface/95 p-4 shadow-xl ring-1 ring-black/5 backdrop-blur animate-float sm:-left-10"
             >
               <div className="flex items-center gap-2">
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary-100 text-primary-700">
@@ -133,7 +134,7 @@ export default function Hero() {
               initial={{ opacity: 0, x: 20, y: -20 }}
               animate={{ opacity: 1, x: 0, y: 0 }}
               transition={{ delay: 0.65, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute -right-4 bottom-10 w-48 rounded-2xl bg-white/95 p-4 shadow-xl ring-1 ring-black/5 backdrop-blur animate-float-slow sm:-right-10"
+              className="absolute -right-4 bottom-10 w-48 rounded-2xl bg-surface/95 p-4 shadow-xl ring-1 ring-black/5 backdrop-blur animate-float-slow sm:-right-10"
             >
               <div className="flex -space-x-2">
                 {BRANDS.map((b) => (
@@ -149,9 +150,9 @@ export default function Hero() {
                   </span>
                 ))}
               </div>
-              <p className="mt-2 text-xs font-bold text-ink-900">3 Leading FMCG Brands</p>
+              <p className="mt-2 text-xs font-bold text-ink-900">4 Leading FMCG Brands</p>
               <p className="mt-0.5 text-[11px] leading-snug text-ink-500">
-                Water • Beverages • Namkeen
+                Water • Beverages • Namkeen • Soft Drinks
               </p>
             </motion.div>
           </div>
@@ -159,13 +160,14 @@ export default function Hero() {
       </Container>
 
       {/* Marquee strip */}
-      <div className="relative mt-20 overflow-hidden border-y border-ink-900/8 bg-white/50 py-4 backdrop-blur-sm">
+      <div className="relative mt-20 overflow-hidden border-y border-ink-900/8 bg-surface/50 py-4 backdrop-blur-sm">
         <div className="flex w-max animate-marquee gap-16">
           {Array.from({ length: 2 }).flatMap((_, dup) =>
             [
               "Zealup Water",
               "Parle Agro",
               "Balaji Wafers",
+              "Campa",
               "Retailers",
               "Wholesalers",
               "Supermarkets",

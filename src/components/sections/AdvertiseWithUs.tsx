@@ -18,7 +18,7 @@ export default function AdvertiseWithUs() {
   return (
     <section className="relative py-24 sm:py-32">
       <Container>
-        <div className="relative overflow-hidden rounded-[2rem] border border-ink-900/8 bg-white/70 p-8 shadow-sm sm:p-10 lg:p-14">
+        <div className="relative overflow-hidden rounded-[2rem] border border-ink-900/8 bg-surface/70 p-8 shadow-sm sm:p-10 lg:p-14">
           <div aria-hidden className="absolute -right-24 -top-24 -z-10 h-72 w-72 rounded-full bg-secondary-200/40 blur-[100px]" />
           <div aria-hidden className="absolute -bottom-24 -left-16 -z-10 h-64 w-64 rounded-full bg-primary-200/40 blur-[100px]" />
 

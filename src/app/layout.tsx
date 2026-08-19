@@ -23,16 +23,17 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default:
-      "Shandilya Forwarding | Authorized Distributor of Zealup Water, Parle Agro & Balaji Wafers",
+      "Shandilya Forwarding | Authorized Distributor of Zealup Water, Parle Agro, Balaji Wafers & Campa",
     template: "%s | Shandilya Forwarding",
   },
   description:
-    "Shandilya Forwarding is an authorized distributor of Zealup Water, Parle Agro and Balaji Wafers products, supplying retailers, wholesalers, supermarkets, hotels, restaurants and institutions with genuine products and reliable, on-time delivery.",
+    "Shandilya Forwarding is an authorized distributor of Zealup Water, Parle Agro, Balaji Wafers and Campa products, supplying retailers, wholesalers, supermarkets, hotels, restaurants and institutions with genuine products and reliable, on-time delivery.",
   keywords: [
     "Shandilya Forwarding",
     "Zealup Water distributor",
     "Parle Agro distributor",
     "Balaji Wafers distributor",
+    "Campa distributor",
     "FMCG distributor",
     "wholesale beverages",
     "dealership",
@@ -40,9 +41,9 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title:
-      "Shandilya Forwarding | Authorized Distributor of Zealup Water, Parle Agro & Balaji Wafers",
+      "Shandilya Forwarding | Authorized Distributor of Zealup Water, Parle Agro, Balaji Wafers & Campa",
     description:
-      "Trusted distribution partner supplying genuine Zealup Water, Parle Agro and Balaji Wafers products to retailers, wholesalers, hotels and institutions.",
+      "Trusted distribution partner supplying genuine Zealup Water, Parle Agro, Balaji Wafers and Campa products to retailers, wholesalers, hotels and institutions.",
     url: siteUrl,
     siteName: "Shandilya Forwarding",
     locale: "en_IN",
