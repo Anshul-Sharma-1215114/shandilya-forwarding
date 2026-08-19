@@ -36,6 +36,15 @@ const THEME = {
     check: "bg-violet-600 text-white",
     glow: "bg-violet-200/50",
   },
+  // Deliberately not one of the four FMCG brand colours - these are
+  // Shandilya's own products, not a distributed brand, so a distinct
+  // neutral-ish green reads as "practical/utility" rather than competing
+  // for attention with the flashier consumer brands above.
+  inhouse: {
+    badge: "bg-emerald-50 text-emerald-700 ring-emerald-200",
+    check: "bg-emerald-600 text-white",
+    glow: "bg-emerald-200/50",
+  },
 };
 
 export default function Brands() {
@@ -44,8 +53,8 @@ export default function Brands() {
       <Container>
         <SectionHeading
           eyebrow="Our Brands"
-          title="Four Trusted Names, One Reliable Distributor"
-          description="We are proud to be the authorized distribution partner for these leading FMCG brands, bringing genuine, high-quality products to businesses across our network."
+          title="Trusted Brands, Plus Our Own Products"
+          description="We are proud to be the authorized distribution partner for these leading FMCG brands - and we supply a few of our own in-house products directly too."
           className="mb-16"
         />
 

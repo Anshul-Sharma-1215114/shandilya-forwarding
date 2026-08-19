@@ -1,7 +1,7 @@
 import { IMAGES } from "@/lib/images";
 
 export type Brand = {
-  slug: "zealup-water" | "parle-agro" | "balaji-wafers" | "campa";
+  slug: "zealup-water" | "parle-agro" | "balaji-wafers" | "campa" | "in-house";
   name: string;
   tagline: string;
   description: string;
@@ -9,26 +9,29 @@ export type Brand = {
   image: string;
   imageFit?: "cover" | "contain";
   logo?: string;
-  theme: "primary" | "secondary" | "accent" | "campa";
+  theme: "primary" | "secondary" | "accent" | "campa" | "inhouse";
 };
 
 export const BRANDS: Brand[] = [
   {
-    slug: "zealup-water",
-    name: "Zealup Water",
-    tagline: "Premium Packaged Drinking Water",
+    slug: "campa",
+    name: "Campa",
+    tagline: "India's Iconic Cola & Energy Drinks, Reimagined",
     description:
-      "Zealup is a premium packaged drinking water brand, RO-purified and enriched with balanced minerals for instant hydration. Available across 20L jars, 1L and 500ml bottles, Zealup is trusted by households, offices, hotels and institutions for consistent purity and taste.",
+      "Campa is India's original cola brand, relaunched with a modern range spanning Cola, Lemon and Club Soda soft drinks alongside a full energy drinks line-up - Gold Boost, Berry Kick, Power Up, Neon Boost, Orange Boost and Purple Energy - plus Campa Sure packaged drinking water. Backed by aggressive nationwide distribution, Campa is fast becoming a value-for-money favourite on retail shelves.",
     points: [
-      "BIS Certified & RO Purified",
-      "Balanced Mineral Content",
-      "Available in Multiple Pack Sizes",
-      "Trusted for Home, Office & Institutional Use",
+      "India's Original, Nationally Recognised Cola",
+      "Full Soft Drink, Energy Drink & Water Range",
+      "Strong Value-for-Money Positioning",
+      "Rapidly Growing Retail Demand",
     ],
-    image: IMAGES.zealupBrand,
-    imageFit: "contain",
-    logo: "/images/logo/zealup-logo.png",
-    theme: "primary",
+    // No standalone Campa wordmark logo on hand yet (campa-logo.png is
+    // specifically the "Campa Sure" sub-brand mark, not the umbrella
+    // brand) - omitted rather than shown for the wrong product line;
+    // BrandLogo falls back to styled text, same as it already does for
+    // the other brands below (their logo files don't exist either).
+    image: "/images/products/campa-brand-banner.jpg",
+    theme: "campa",
   },
   {
     slug: "parle-agro",
@@ -64,23 +67,40 @@ export const BRANDS: Brand[] = [
     theme: "accent",
   },
   {
-    slug: "campa",
-    name: "Campa",
-    tagline: "India's Iconic Cola & Energy Drinks, Reimagined",
+    // No catchy third-party brand name for this one on purpose - these are
+    // Shandilya's own supplied products (packaged ice, water jars), not a
+    // distributed FMCG brand, so the card intentionally reads more plainly
+    // than the other four.
+    slug: "in-house",
+    name: "In-House",
+    tagline: "Our Own Products, Made In-House",
     description:
-      "Campa is India's original cola brand, relaunched with a modern range spanning Cola, Lemon and Club Soda soft drinks alongside a full energy drinks line-up - Gold Boost, Berry Kick, Power Up, Neon Boost, Orange Boost and Purple Energy - plus Campa Sure packaged drinking water. Backed by aggressive nationwide distribution, Campa is fast becoming a value-for-money favourite on retail shelves.",
+      "Alongside the brands we distribute, Shandilya Forwarding also supplies its own in-house products directly - Diamond Ice Cubes and returnable water jars - filling everyday gaps for retailers and institutions without needing a separate supplier.",
     points: [
-      "India's Original, Nationally Recognised Cola",
-      "Full Soft Drink, Energy Drink & Water Range",
-      "Strong Value-for-Money Positioning",
-      "Rapidly Growing Retail Demand",
+      "Supplied Directly by Shandilya Forwarding",
+      "Packaged Ice in Multiple Sizes",
+      "Returnable 20L Water Jars",
+      "One Less Supplier to Manage",
     ],
-    // No standalone Campa wordmark logo on hand yet (campa-logo.png is
-    // specifically the "Campa Sure" sub-brand mark, not the umbrella
-    // brand) - omitted rather than shown for the wrong product line;
-    // BrandLogo falls back to styled text, same as it already does for
-    // the other three brands above (their logo files don't exist either).
-    image: "/images/products/campa-brand-banner.jpg",
-    theme: "campa",
+    image: "/images/products/diamond-ice-cubes-5kg.png",
+    imageFit: "contain",
+    theme: "inhouse",
+  },
+  {
+    slug: "zealup-water",
+    name: "Zealup Water",
+    tagline: "Premium Packaged Drinking Water",
+    description:
+      "Zealup is a premium packaged drinking water brand, RO-purified and enriched with balanced minerals for instant hydration. Available across 20L jars, 1L and 500ml bottles, Zealup is trusted by households, offices, hotels and institutions for consistent purity and taste.",
+    points: [
+      "BIS Certified & RO Purified",
+      "Balanced Mineral Content",
+      "Available in Multiple Pack Sizes",
+      "Trusted for Home, Office & Institutional Use",
+    ],
+    image: IMAGES.zealupBrand,
+    imageFit: "contain",
+    logo: "/images/logo/zealup-logo.png",
+    theme: "primary",
   },
 ];

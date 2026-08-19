@@ -95,11 +95,11 @@ export type Order = {
 export type Brand = "ZEALUP_WATER" | "PARLE_AGRO" | "BALAJI_WAFERS" | "ICE_CUBE" | "CAMPA";
 
 export const BRAND_LABELS: Record<Brand, string> = {
-  ZEALUP_WATER: "Zealup Water",
+  CAMPA: "Campa",
   PARLE_AGRO: "Parle Agro",
   BALAJI_WAFERS: "Balaji Wafers",
-  ICE_CUBE: "Ice Cube",
-  CAMPA: "Campa",
+  ICE_CUBE: "In-House",
+  ZEALUP_WATER: "Zealup Water",
 };
 
 export type Product = {
