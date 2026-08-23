@@ -59,13 +59,21 @@ export default function AllPartnersMap({ initialPartners }: { initialPartners: D
   useEffect(() => {
     let cancelled = false;
     async function poll() {
+      // Skip while the tab is backgrounded - nothing on screen to update,
+      // so a hidden tab polling every 15s forever was pure wasted load.
+      if (document.hidden) return;
       const result = await getAllDeliveryPartners();
       if (!cancelled && result.partners) setPartners(result.partners);
     }
     const interval = setInterval(() => void poll(), POLL_INTERVAL_MS);
+    function onVisibilityChange() {
+      if (!document.hidden) void poll();
+    }
+    document.addEventListener("visibilitychange", onVisibilityChange);
     return () => {
       cancelled = true;
       clearInterval(interval);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
     };
   }, []);
 

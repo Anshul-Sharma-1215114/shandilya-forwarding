@@ -120,6 +120,7 @@ export default async function SellerDashboardPage({
               <th className="px-5 py-3.5">Order</th>
               <th className="px-5 py-3.5">Customer</th>
               <th className="px-5 py-3.5">Status</th>
+              <th className="px-5 py-3.5">Delivery</th>
               <th className="px-5 py-3.5">Total</th>
               <th className="px-5 py-3.5">Placed</th>
             </tr>
@@ -156,6 +157,13 @@ export default async function SellerDashboardPage({
                     {STATUS_LABEL[order.status]}
                   </span>
                 </td>
+                <td className="px-5 py-3.5">
+                  {order.deliveryPartner ? (
+                    <span className="text-ink-700">{order.deliveryPartner.name}</span>
+                  ) : (
+                    <span className="text-ink-400">Unassigned</span>
+                  )}
+                </td>
                 <td className="px-5 py-3.5 font-semibold tabular-nums text-ink-900">
                   {formatPrice(order.totalInPaise)}
                 </td>
@@ -170,7 +178,7 @@ export default async function SellerDashboardPage({
             ))}
             {orders.length === 0 && (
               <tr>
-                <td colSpan={5} className="px-4 py-14 text-center text-ink-400">
+                <td colSpan={6} className="px-4 py-14 text-center text-ink-400">
                   No orders found.
                 </td>
               </tr>

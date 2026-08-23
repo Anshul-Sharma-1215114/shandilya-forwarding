@@ -33,7 +33,12 @@ const destIcon = L.divIcon({
 
 function FitBounds({ points }: { points: [number, number][] }) {
   const map = useMap();
-  const key = points.map((p) => p.join(",")).join("|");
+  // Rounded to the same ~200m precision as the route-refetch effect below -
+  // GPS jitter alone shifts the raw coordinates on nearly every 15s poll,
+  // which was re-triggering a full fitBounds pan/zoom (and new tile
+  // requests) every single tick regardless of whether the partner actually
+  // moved, fighting any manual pan/zoom the seller was doing.
+  const key = points.map((p) => p.map((n) => Math.round(n * 500)).join(",")).join("|");
   useEffect(() => {
     if (points.length < 2) return;
     map.fitBounds(points, { padding: [30, 30] });
@@ -79,6 +84,10 @@ export default function DeliveryTrackingMap({
     mountedRef.current = true;
 
     async function poll() {
+      // Skip the round trip entirely while the tab is backgrounded - a
+      // hidden tab has nothing to render the result into anyway, so this
+      // was pure wasted load on the server for no visible benefit.
+      if (document.hidden) return;
       const result = await getDeliveryLocation(orderId);
       if (!mountedRef.current) return;
       if (result.error) {
@@ -94,9 +103,16 @@ export default function DeliveryTrackingMap({
 
     void poll();
     const interval = setInterval(() => void poll(), POLL_INTERVAL_MS);
+    // Catch up immediately on refocus instead of waiting up to 15s for the
+    // next tick, since the last one may have been skipped while hidden.
+    function onVisibilityChange() {
+      if (!document.hidden) void poll();
+    }
+    document.addEventListener("visibilitychange", onVisibilityChange);
     return () => {
       mountedRef.current = false;
       clearInterval(interval);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
     };
   }, [orderId]);
 

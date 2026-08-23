@@ -61,12 +61,16 @@ export default function Products() {
           ))}
         </div>
 
-        <motion.div layout className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 lg:grid-cols-4">
+        <motion.div className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 lg:grid-cols-4">
+          {/* No `layout` prop here or per-card below - with ~180 products in
+              the "All" tab, Framer Motion's FLIP layout measurement on every
+              single card for every filter change was real, measurable jank.
+              Cards still fade/slide in and out; they just snap to their new
+              grid position instantly instead of animating the reflow. */}
           <AnimatePresence mode="popLayout">
             {filtered.map((product, i) => (
               <motion.div
                 key={product.slug}
-                layout
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.9 }}

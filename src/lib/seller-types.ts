@@ -89,6 +89,7 @@ export type Order = {
   payment: Payment;
   deliveryAddress: Address;
   user: SellerUser;
+  deliveryPartner: { id: string; name: string; phone: string } | null;
   timeline?: OrderTimelineEvent[];
 };
 
