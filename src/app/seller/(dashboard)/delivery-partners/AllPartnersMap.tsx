@@ -5,6 +5,7 @@ import L from "leaflet";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import type { DeliveryPartner } from "@/lib/seller-types";
+import { TILE_ATTRIBUTION, TILE_URL_TEMPLATE } from "@/lib/tiles";
 import { getAllDeliveryPartners } from "./actions";
 
 const POLL_INTERVAL_MS = 15000;
@@ -108,10 +109,7 @@ export default function AllPartnersMap({ initialPartners }: { initialPartners: D
         </div>
       )}
       <MapContainer center={points[0]} zoom={12} scrollWheelZoom style={{ height: 380, width: "100%" }}>
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
+        <TileLayer attribution={TILE_ATTRIBUTION} url={TILE_URL_TEMPLATE} />
         {located.map((p) => (
           <Marker key={p.id} position={[p.lastKnownLat, p.lastKnownLng]} icon={iconFor(p)}>
             <Popup>

@@ -8,9 +8,10 @@ import "leaflet/dist/leaflet.css";
 import { getDeliveryLocation, getTrackingTicket } from "./actions";
 import { computeBearing, type LatLng } from "@/lib/bearing";
 import { distanceToPolylineMeters, ROUTE_DEVIATION_THRESHOLD_M } from "@/lib/route-deviation";
+import { TILE_ATTRIBUTION, TILE_URL_TEMPLATE } from "@/lib/tiles";
 
 const POLL_INTERVAL_MS = 15000;
-const SOCKET_URL = process.env.NEXT_PUBLIC_BACKEND_SOCKET_URL ?? "http://localhost:4000";
+const SOCKET_URL = process.env.NEXT_PUBLIC_BACKEND_URL ?? "http://localhost:4000";
 
 // OSRM's free public demo routing server - no API key, same free/open-source
 // spirit as the OpenStreetMap tiles already used here. Fine at this
@@ -269,10 +270,7 @@ export default function DeliveryTrackingMap({
           scrollWheelZoom={false}
           style={{ height: 280, width: "100%" }}
         >
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
+          <TileLayer attribution={TILE_ATTRIBUTION} url={TILE_URL_TEMPLATE} />
           <RotatedTruckMarker position={[position.lat, position.lng]} bearing={bearing} />
           {hasDest && <Marker position={[destLat!, destLng!]} icon={destIcon} />}
           {route && (

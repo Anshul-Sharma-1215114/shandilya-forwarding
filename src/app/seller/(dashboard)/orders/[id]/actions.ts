@@ -46,7 +46,7 @@ export async function getDeliveryLocation(orderId: string) {
 /**
  * A short-lived ticket scoped to one order's live-tracking socket room. This
  * is the one thing the browser fetches through the backend directly (see
- * NEXT_PUBLIC_BACKEND_SOCKET_URL) rather than through a server action for
+ * NEXT_PUBLIC_BACKEND_URL) rather than through a server action for
  * every update - a persistent Socket.IO connection can't be proxied through
  * Next's server the way a request/response round trip can. The ticket keeps
  * the browser from ever needing the real session token to do it.
