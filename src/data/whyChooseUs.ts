@@ -7,7 +7,7 @@ export type WhyItem = {
 export const WHY_CHOOSE_US: WhyItem[] = [
   {
     title: "Authorized Distributor",
-    description: "Officially appointed distribution partner for Zealup Water, Parle Agro, Balaji Wafers and Campa.",
+    description: "Officially appointed distribution partner for Zealup Water, Parle Agro and Balaji Wafers.",
     icon: "BadgeCheck",
   },
   {

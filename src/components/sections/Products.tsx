@@ -13,7 +13,6 @@ import { cn } from "@/lib/utils";
 type Filter = "All" | BrandName;
 
 const BRAND_BADGE: Record<BrandName, string> = {
-  Campa: "bg-violet-50 text-violet-700 ring-violet-200",
   "Parle Agro": "bg-secondary-50 text-secondary-700 ring-secondary-200",
   "Balaji Wafers": "bg-accent-50 text-accent-700 ring-accent-200",
   "Zealup Water": "bg-primary-50 text-primary-700 ring-primary-200",

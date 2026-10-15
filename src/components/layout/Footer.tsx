@@ -14,7 +14,7 @@ export default function Footer() {
           <div>
             <CompanyLogo dark />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-ink-300">
-              Authorized distributor of Zealup Water, Parle Agro, Balaji Wafers and Campa
+              Authorized distributor of Zealup Water, Parle Agro and Balaji Wafers
               products - supplying retailers, wholesalers, supermarkets, hotels, restaurants
               and institutions with reliability and efficiency.
             </p>

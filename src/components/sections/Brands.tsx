@@ -27,16 +27,7 @@ const THEME = {
     check: "bg-accent-600 text-white",
     glow: "bg-accent-200/50",
   },
-  // Campa's own real-world brand colour (the Cola bottle's label purple) -
-  // primary/secondary/accent are each already spoken for by the other
-  // three brands, so this uses Tailwind's default violet scale directly
-  // rather than introducing a new site-wide design token for one section.
-  campa: {
-    badge: "bg-violet-50 text-violet-700 ring-violet-200",
-    check: "bg-violet-600 text-white",
-    glow: "bg-violet-200/50",
-  },
-  // Deliberately not one of the four FMCG brand colours - these are
+  // Deliberately not one of the three FMCG brand colours - these are
   // Shandilya's own products, not a distributed brand, so a distinct
   // neutral-ish green reads as "practical/utility" rather than competing
   // for attention with the flashier consumer brands above.

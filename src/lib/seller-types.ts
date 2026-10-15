@@ -93,10 +93,9 @@ export type Order = {
   timeline?: OrderTimelineEvent[];
 };
 
-export type Brand = "ZEALUP_WATER" | "PARLE_AGRO" | "BALAJI_WAFERS" | "ICE_CUBE" | "CAMPA";
+export type Brand = "ZEALUP_WATER" | "PARLE_AGRO" | "BALAJI_WAFERS" | "ICE_CUBE";
 
 export const BRAND_LABELS: Record<Brand, string> = {
-  CAMPA: "Campa",
   PARLE_AGRO: "Parle Agro",
   BALAJI_WAFERS: "Balaji Wafers",
   ZEALUP_WATER: "Zealup Water",

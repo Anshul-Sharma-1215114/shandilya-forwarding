@@ -11,7 +11,7 @@ function formatPrice(paise: number) {
   return `₹${(paise / 100).toFixed(2)}`;
 }
 
-const BRANDS: Brand[] = ["CAMPA", "PARLE_AGRO", "BALAJI_WAFERS", "ZEALUP_WATER", "ICE_CUBE"];
+const BRANDS: Brand[] = ["PARLE_AGRO", "BALAJI_WAFERS", "ZEALUP_WATER", "ICE_CUBE"];
 const inputClass =
   "w-full rounded-lg border border-ink-900/12 px-3 py-2 text-sm text-ink-900 outline-none transition-colors focus:border-primary-500";
 
@@ -284,7 +284,7 @@ export default function ProductsTable({ products }: { products: Product[] }) {
                     </div>
                   </div>
                 </td>
-                <td className="px-5 py-3.5 text-ink-600">{BRAND_LABELS[p.brand]}</td>
+                <td className="px-5 py-3.5 text-ink-600">{BRAND_LABELS[p.brand] ?? p.brand}</td>
                 <td className="px-5 py-3.5">
                   <p className="font-semibold tabular-nums text-ink-900">{formatPrice(p.priceInPaise)}</p>
                   <p className="text-xs text-ink-400">

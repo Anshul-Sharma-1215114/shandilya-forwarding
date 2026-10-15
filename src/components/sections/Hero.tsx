@@ -49,9 +49,8 @@ export default function Hero() {
                 <span className="relative inline-block text-primary-700">
                   Zealup Water,
                 </span>{" "}
-                <span className="relative inline-block text-secondary-600">Parle Agro,</span>{" "}
-                <span className="relative inline-block text-accent-600">Balaji Wafers</span>{" "}
-                &amp; <span className="relative inline-block text-violet-600">Campa</span>
+                <span className="relative inline-block text-secondary-600">Parle Agro</span>{" "}
+                &amp; <span className="relative inline-block text-accent-600">Balaji Wafers</span>
               </h2>
             </Reveal>
 
@@ -79,7 +78,7 @@ export default function Hero() {
                 {[
                   { icon: PackageCheck, label: "100% Genuine Products" },
                   { icon: Truck, label: "Reliable, On-Time Delivery" },
-                  { icon: BadgeCheck, label: "4 Trusted FMCG Brands" },
+                  { icon: BadgeCheck, label: "3 Trusted FMCG Brands" },
                 ].map(({ icon: Icon, label }) => (
                   <div key={label} className="flex items-center gap-2.5">
                     <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-50 text-primary-600 ring-1 ring-primary-200/70">
@@ -150,9 +149,9 @@ export default function Hero() {
                   </span>
                 ))}
               </div>
-              <p className="mt-2 text-xs font-bold text-ink-900">4 Leading FMCG Brands</p>
+              <p className="mt-2 text-xs font-bold text-ink-900">3 Leading FMCG Brands</p>
               <p className="mt-0.5 text-[11px] leading-snug text-ink-500">
-                Water • Beverages • Namkeen • Soft Drinks
+                Water • Beverages • Namkeen
               </p>
             </motion.div>
           </div>
@@ -167,7 +166,6 @@ export default function Hero() {
               "Zealup Water",
               "Parle Agro",
               "Balaji Wafers",
-              "Campa",
               "Retailers",
               "Wholesalers",
               "Supermarkets",

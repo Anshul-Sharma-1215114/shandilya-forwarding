@@ -10,7 +10,7 @@ import { StaggerGroup, StaggerItem } from "@/components/ui/StaggerGroup";
 import { IMAGES } from "@/lib/images";
 
 const ABOUT_POINTS = [
-  { icon: BadgeCheck, title: "Authorized Distributor", desc: "Officially appointed partner for Zealup Water, Parle Agro, Balaji Wafers & Campa." },
+  { icon: BadgeCheck, title: "Authorized Distributor", desc: "Officially appointed partner for Zealup Water, Parle Agro & Balaji Wafers." },
   { icon: Link2, title: "Reliable Distribution", desc: "A dependable network built on consistency and trust." },
   { icon: Warehouse, title: "Strong Supply Chain", desc: "Well-managed warehousing and logistics infrastructure." },
   { icon: Clock, title: "Timely Delivery", desc: "Scheduled dispatches that keep your shelves stocked." },
